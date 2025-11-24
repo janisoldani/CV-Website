@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Janis Oldani – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="navbar-content">
+      <div class="navbar-name" id="navbar-name">
+        <div class="navbar-profile-image">
+          <img id="navbar-profile-photo" alt="Profilbild" />
+        </div>
+      </div>
+      
+      <nav class="navbar-nav">
+        <a href="#work" class="navbar-link">Work & Projekte</a>
+        <a href="#about" class="navbar-link">Profil & Background</a>
+        <a href="#contact" class="navbar-link">Kontakt</a>
+      </nav>
+      
+      <a class="navbar-social" id="navbar-linkedin" href="#" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M4.5 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM3 7h3v10H3V7zm6 0h3v1.2c.6-.9 1.8-1.4 3.2-1.4 3.3 0 4 2.1 4 5v5.2h-3v-4.6c0-1.2 0-2.7-1.7-2.7-1.7 0-2 1.3-2 2.6v4.7h-3V7z"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="hero-left">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span id="availability-pill-label"></span>
+        </div>
+
+        <h1 class="hero-title">
+          <span id="hero-title-line1"></span><br />
+          <span id="hero-title-line2"></span>
+        </h1>
+
+        <p class="hero-subtitle" id="hero-subtitle"></p>
+
+        <div class="hero-buttons">
+          <a href="#work" class="btn btn-primary" id="hero-primary-cta"></a>
+          <a href="#about" class="btn btn-secondary" id="hero-tertiary-cta"></a>
+          <a href="#contact" class="btn btn-secondary" id="hero-secondary-cta"></a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Fokus</span>
+            <span class="hero-meta-value">AI, Data, Web</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Standort</span>
+            <span class="hero-meta-value" id="hero-location"></span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Status</span>
+            <span class="hero-meta-value" id="hero-role"></span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Kurzprofil">
+        <div class="hero-card-inner">
+          <div class="hero-card-top">
+            <span class="hero-tag">Über mich</span>
+            <span class="status-pill">
+              <span class="status-dot"></span>
+              <span id="availability-status-text"></span>
+            </span>
+          </div>
+
+          <div class="hero-card-header">
+            <div class="profile-avatar">
+              <img id="profile-photo" alt="Profilbild" />
+            </div>
+            <div class="hero-card-header-content">
+              <h2 class="hero-name" id="hero-name"></h2>
+              <p class="hero-card-text" id="hero-about"></p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title" id="work-title"></h3>
+          <p class="section-subtitle" id="work-subtitle"></p>
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projects-container"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title" id="about-title"></h3>
+          <p class="section-subtitle" id="about-subtitle"></p>
+        </div>
+      </div>
+
+      <div class="grid" id="about-cards"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title" id="contact-title"></h3>
+          <p class="section-subtitle" id="contact-subtitle"></p>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <div>
+          <p id="contact-intro"></p>
+          <p class="contact-highlight" style="margin-top: 6px;">
+            <span id="contact-email-label-prefix"></span>
+            <a id="contact-email-link"></a>
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <button id="contact-email-link-btn" class="btn btn-primary"></button>
+          <a class="btn btn-secondary" id="link-linkedin" href="#" target="_blank">LinkedIn</a>
+          <a class="btn btn-secondary" id="link-github" href="#" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span>
+      <span id="footer-owner-name"></span>.
+      <span id="footer-built-with"></span>
+    </footer>
+  </main>
+
+  <script src="js/content.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

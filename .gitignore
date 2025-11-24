@@ -1,0 +1,13 @@
+# VS Code
+.vscode/
+
+# Node/Frontend (falls du später npm etc. nutzt)
+node_modules/
+dist/
+
+# Systemdateien
+.DS_Store
+
+# Python-Umgebung (falls nötig)
+venv/
+__pycache__/
