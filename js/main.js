@@ -130,7 +130,13 @@ if (projectsContainer && Array.isArray(c.projects)) {
     card.href = `project-detail.html?id=${project.id}`;
     card.className = "project-card";
 
+    // Füge spezielle Klasse für in-progress Projekte hinzu
+    if (project.status === "in-progress") {
+      card.classList.add("project-card-in-progress");
+    }
+
     card.innerHTML = `
+      ${project.status === "in-progress" ? '<div class="project-status-badge">In Progress</div>' : ""}
       <div class="project-category">${project.category}</div>
       <div class="project-title">${project.title}</div>
       <div class="project-description">${project.description}</div>

@@ -25,7 +25,7 @@ window.SITE_CONTENT = {
 
   hero: {
     titleLine1: "Code trifft Business – Zukunft entsteht.",
-    titleLine2: "Data • KI • Web-Technologie.",
+    titleLine2: "",
     subtitle:
       "Ich studiere Business Artificial Intelligence an der FHNW und kombiniere praktische Bankerfahrung mit technischen Fähigkeiten in Daten, KI und Software, um Mehrwert für Unternehmen zu schaffen.",
     primaryCta: "Projekte ansehen",

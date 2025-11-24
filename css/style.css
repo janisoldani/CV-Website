@@ -19,12 +19,17 @@
   padding: 0;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
                "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #0a0e27 0, #050a18 52%, #000 100%);
+  background: linear-gradient(180deg, #0a0e27 0%, #050a18 40%, #000 100%);
   color: var(--text);
   line-height: 1.5;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -58,11 +63,12 @@ body {
   min-width: 150px;
   position: relative;
   cursor: pointer;
-  transition: color 0.14s ease;
+  transition: all 0.14s ease;
 }
 
 .navbar-name:hover {
   color: var(--accent);
+  text-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2);
 }
 
 .navbar-profile-image {
@@ -105,12 +111,18 @@ body {
 .navbar-link {
   font-size: 13px;
   color: var(--text-muted);
-  transition: color 0.14s ease;
+  transition: all 0.14s ease;
   text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: transparent;
 }
 
 .navbar-link:hover {
   color: var(--accent);
+  background: rgba(14, 165, 233, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2);
 }
 
 .navbar-social {
@@ -123,19 +135,16 @@ body {
   background: rgba(15, 23, 42, 0.8);
   border: 1px solid #1f2937;
   color: var(--text);
-  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+  transition: all 0.14s ease;
   cursor: pointer;
 }
 
 .navbar-social:hover {
   transform: translateY(-3px);
-  background: #020617;
-  border-color: #374151;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.85);
-}
-
-main {
-  margin-top: 60px;
+  background: rgba(14, 165, 233, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2);
 }
 
 a {
@@ -145,7 +154,7 @@ a {
 
 main {
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 60px auto 0;
   padding: 32px 20px 64px;
 }
 
@@ -160,8 +169,8 @@ main {
 .hero-left {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 32px;
+  grid-template-columns: 1fr 400px;
+  gap: 36px;
   align-items: start;
 }
 
@@ -245,10 +254,12 @@ main {
 }
 
 h1 {
-  font-size: clamp(32px, 5vw, 42px);
+  font-size: clamp(28px, 4vw, 36px);
   letter-spacing: -0.05em;
   margin-bottom: 12px;
-  word-break: break-word;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: visible;
 }
 
 h1 span {
@@ -402,8 +413,8 @@ h1 span {
 
 .hero-card-header .profile-avatar {
   flex-shrink: 0;
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   margin-bottom: 0;
 }
 
@@ -642,11 +653,21 @@ footer {
   box-shadow: 0 20px 40px rgba(124, 87, 255, 0.5);
 }
 
+.project-card-in-progress {
+  border: 2px solid #0ea5e9;
+  box-shadow: 0 14px 28px rgba(14, 165, 233, 0.3);
+}
+
+.project-card-in-progress:hover {
+  border: 2px solid #0ea5e9;
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.5);
+}
+
 .project-status-badge {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: var(--accent);
+  background: #0ea5e9;
   color: #fff;
   padding: 4px 10px;
   border-radius: 999px;
@@ -654,6 +675,7 @@ footer {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
 }
 
 .project-category {
