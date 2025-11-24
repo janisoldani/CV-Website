@@ -26,7 +26,7 @@ html {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
                "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #0a0e27 0%, #050a18 40%, #000 100%);
+  background: #060914;
   color: var(--text);
   line-height: 1.5;
   min-height: 100vh;
@@ -174,10 +174,6 @@ main {
   align-items: start;
 }
 
-.hero-left > .pill {
-  grid-column: 1;
-}
-
 .hero-left > .hero-title {
   grid-column: 1;
 }
@@ -188,17 +184,17 @@ main {
 
 .hero-left > .hero-buttons {
   grid-column: 1;
-  grid-row: 4;
+  grid-row: 3;
 }
 
 .hero-left > .hero-meta {
   grid-column: 1;
-  grid-row: 5;
+  grid-row: 4;
 }
 
 .hero-left > .hero-card {
   grid-column: 2;
-  grid-row: 3 / 5;
+  grid-row: 2 / 4;
   align-self: start;
   margin-top: 0;
 }
@@ -235,22 +231,22 @@ main {
 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 4px 11px;
+  gap: 6px;
+  padding: 3px 8px;
   border-radius: 999px;
   background: var(--accent-soft);
   border: 1px solid rgba(14, 165, 233, 0.4);
-  font-size: 12px;
+  font-size: 10px;
   color: var(--accent);
   margin-bottom: 18px;
 }
 
 .pill-dot {
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   border-radius: 999px;
   background: #22c55e;
-  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
 }
 
 h1 {
@@ -342,25 +338,22 @@ h1 span {
 }
 
 .hero-card {
-  background: radial-gradient(circle at top left, #0f1935 0, #050a18 60%);
+  background: #0f172a;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-soft);
   padding: 20px 18px;
   border: 1px solid rgba(15, 23, 42, 0.9);
   overflow: hidden;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+  position: relative;
 }
 
-.hero-card::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(circle at 0 0, rgba(14, 165, 233, 0.25), transparent 60%),
-    radial-gradient(circle at 100% 100%, rgba(6, 182, 212, 0.2), transparent 60%);
-  opacity: 0.9;
-  mix-blend-mode: screen;
-  pointer-events: none;
+.hero-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2), 0 20px 40px rgba(15, 23, 42, 0.9);
+  border-color: rgba(14, 165, 233, 0.5);
 }
+
 
 .hero-card-inner {
   position: relative;
@@ -499,8 +492,8 @@ section {
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
-  border-color: rgba(148, 163, 184, 0.65);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2), 0 20px 40px rgba(15, 23, 42, 0.9);
+  border-color: rgba(14, 165, 233, 0.5);
   background: #020617;
 }
 
@@ -551,6 +544,13 @@ section {
   gap: 18px;
   box-shadow: 0 18px 40px rgba(2, 6, 23, 0.9);
   font-size: 14px;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2), 0 20px 40px rgba(15, 23, 42, 0.9);
+  border-color: rgba(14, 165, 233, 0.5);
 }
 
 .contact-box p {
@@ -638,8 +638,8 @@ footer {
 
 .project-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
-  border-color: rgba(148, 163, 184, 0.65);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2), 0 20px 40px rgba(15, 23, 42, 0.9);
+  border-color: rgba(14, 165, 233, 0.5);
   background: #020617;
 }
 
@@ -660,7 +660,7 @@ footer {
 
 .project-card-in-progress:hover {
   border: 2px solid #0ea5e9;
-  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.5);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2), 0 20px 40px rgba(15, 23, 42, 0.9);
 }
 
 .project-status-badge {
