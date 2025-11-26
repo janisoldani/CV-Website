@@ -79,12 +79,12 @@ window.SITE_CONTENT = {
       title: "Automatisierte Arztberichte mit Whisper",
       description:
         "Pipeline zur Transkription medizinischer Gespräche mit Whisper und anschliessender Strukturierung der Daten.",
-      tags: ["OpenAI", "Python", "NLP"],
+      tags: ["OpenAI", "Python", "nltk"],
       status: "in-progress",
-      problemstellung: "",
-      zielsetzung: "",
-      vorgehen: "",
-      losung: "",
+      problemstellung: "Die ursprüngliche Herausforderung bestand darin, medizinische Gespräche automatisiert zu transkribieren und für die weitere Datenverarbeitung nutzbar zu machen. Erste Tests zeigten jedoch deutliche Verständnisfehler im Roh-Transkript, wodurch unklar war, ob die Datenqualität für ein anschliessendes Labeling ausreicht. Zusätzlich musste abgeklärt werden, ob manuelle Korrekturen erlaubt und sinnvoll sind, und wie sich die Genauigkeit technisch verbessern lässt.",
+      zielsetzung: "Das Projekt zielte darauf ab, ein funktionierendes End-to-End-Setup aufzubauen, das Audioaufnahmen automatisch verarbeitet, in Text umwandelt, bereinigt und strukturiert. Gleichzeitig sollte geklärt werden, welche Modelle, Parameter und Post-Processing-Schritte notwendig sind, um eine robuste Datenbasis für ein medizinisches KI-System zu schaffen. Ziel war ein technisch sauberes, reproduzierbares Setup, das sich später erweitern lässt.",
+      vorgehen: "Die Audiofiles wurden erfasst, vorverarbeitet und mithilfe von Whisper transkribiert. Die Implementierung erfolgte in Python, inklusive der Modellanbindung, Dateiverarbeitung und automatisierten Ausgabe. Für Vergleichstests kamen unterschiedliche Whisper-Modelle zum Einsatz, um zu beurteilen, ob Modellgrösse und Qualität die Fehlerrate beeinflussen. Parallel wurde die Frage geklärt, ob ein manuelles Korrigieren der Transkripte sinnvoll und vertretbar ist, und welche Optionen zur Qualitätssteigerung existieren (z. B. höherwertige Modelle, Fine-Tuning, Audio-Optimierung).",
+      losung: "Es wurde ein funktionales Transkriptionssystem implementiert, das alle aufgenommenen Gespräche automatisiert einliest, transkribiert und als Textdateien exportiert. Die Resultate sind grundsätzlich nutzbar, weisen jedoch sprachmodelltypische Fehler auf, insbesondere bei Fachbegriffen oder undeutlicher Aussprache. Ergänzend wurde ein Workflow definiert, der sowohl manuelle Korrekturen als auch spätere Verbesserungen durch bessere Modelle oder zusätzliche Verarbeitungsschritte ermöglicht. Die Lösung bildet eine stabile Grundlage für das weitere Labeling und die Entwicklung des eigentlichen KI-Systems.",
       learnings: "",
       githubUrl: "",
       demoUrl: ""
