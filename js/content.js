@@ -10,7 +10,8 @@ window.SITE_CONTENT = {
     photoUrl: "assets/janis-oldani.jpg.jpeg",
     photoAlt: "Portr\u00e4tfoto von Janis Oldani",
     aboutShort:
-      "Ich verbinde mein BAI-Studium mit Sport, Tech und Daten, um praxisnahe digitale Lösungen zu bauen."
+      "Ich verbinde mein BAI-Studium mit Sport, Tech und Daten, um praxisnahe digitale Lösungen zu bauen.",
+    skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Datenanalyse"]
   },
 
   availability: {

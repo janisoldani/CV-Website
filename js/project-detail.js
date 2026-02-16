@@ -1,7 +1,5 @@
 // js/project-detail.js
 
-const c = window.SITE_CONTENT;
-
 // Get project ID from URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = urlParams.get("id");
@@ -10,29 +8,9 @@ const projectId = urlParams.get("id");
 const project = c.projects.find(p => p.id === projectId);
 
 if (!project) {
-  document.body.innerHTML = "<h1 style='text-align:center; padding:40px;'>Projekt nicht gefunden</h1>";
+  window.location.replace("work.html");
 } else {
-  // Helper: sicheres Setzen von Text
-  function setText(id, value) {
-    const el = document.getElementById(id);
-    if (el && value) {
-      el.textContent = value;
-    }
-  }
-
-  // NAVBAR
-  setText("navbar-name", c.personal.name);
-
-  const navbarProfilePhoto = document.getElementById("navbar-profile-photo");
-  if (navbarProfilePhoto) {
-    if (c.personal.photoUrl) {
-      navbarProfilePhoto.src = c.personal.photoUrl;
-      navbarProfilePhoto.alt = c.personal.photoAlt || c.personal.name;
-    }
-  }
-
-  const navbarLinkedIn = document.getElementById("navbar-linkedin");
-  if (navbarLinkedIn) navbarLinkedIn.href = c.links.linkedin;
+  initNavbar();
 
   // PROJECT DETAIL
   setText("project-category", project.category);
@@ -43,16 +21,38 @@ if (!project) {
   const projectTagsContainer = document.getElementById("project-tags");
   if (projectTagsContainer) {
     projectTagsContainer.innerHTML = project.tags
-      .map(tag => `<span class="project-detail-tag">${tag}</span>`)
+      .map(tag => `<span class="project-detail-tag">${escapeHtml(tag)}</span>`)
       .join("");
   }
 
-  // Sections
-  setText("project-problemstellung", project.problemstellung);
-  setText("project-zielsetzung", project.zielsetzung);
-  setText("project-vorgehen", project.vorgehen);
-  setText("project-losung", project.losung);
-  setText("project-learnings", project.learnings);
+  // Detail-Sektionen: leere Sektionen ausblenden
+  const sectionFields = [
+    "project-problemstellung",
+    "project-zielsetzung",
+    "project-vorgehen",
+    "project-losung",
+    "project-learnings"
+  ];
+
+  sectionFields.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const value = project[id.replace("project-", "")];
+    if (value) {
+      el.textContent = value;
+    } else {
+      const section = el.closest(".project-detail-section");
+      if (section) section.style.display = "none";
+    }
+  });
+
+  // Screenshots/Media – ausblenden wenn leer
+  const mediaSection = document.getElementById("project-media");
+  if (mediaSection && !mediaSection.children.length) {
+    const section = mediaSection.closest(".project-detail-section");
+    if (section) section.style.display = "none";
+  }
 
   // Links
   const githubLink = document.getElementById("project-github");
@@ -71,12 +71,11 @@ if (!project) {
     demoLink.style.display = "none";
   }
 
-  // FOOTER
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+  // Links-Sektion ausblenden wenn weder GitHub noch Demo vorhanden
+  if (!project.githubUrl && !project.demoUrl) {
+    const linksSection = document.querySelector(".project-detail-links");
+    if (linksSection) linksSection.style.display = "none";
   }
 
-  setText("footer-owner-name", c.footer.ownerName);
-  setText("footer-built-with", c.footer.builtWith);
+  initFooter();
 }

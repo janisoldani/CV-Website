@@ -1,44 +1,19 @@
-// js/main.js
+// js/main.js — Nur noch Hero + Skills + CTA (index.html)
 
-const c = window.SITE_CONTENT;
-
-// Helper: sicheres Setzen von Text
-function setText(id, value) {
-  const el = document.getElementById(id);
-  if (el && typeof value === "string") {
-    el.textContent = value;
-  }
-}
-
-// NAVBAR
-setText("navbar-name", c.personal.name);
-
-const navbarProfilePhoto = document.getElementById("navbar-profile-photo");
-if (navbarProfilePhoto) {
-  if (c.personal.photoUrl) {
-    navbarProfilePhoto.src = c.personal.photoUrl;
-    navbarProfilePhoto.alt = c.personal.photoAlt || c.personal.name;
-  }
-}
-
-// Click auf Profilbild-Container scrollt zur Kontaktsektion
-const navbarProfileImage = document.querySelector(".navbar-profile-image");
-if (navbarProfileImage) {
-  navbarProfileImage.addEventListener("click", () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-  navbarProfileImage.style.cursor = "pointer";
-}
-
-const navbarLinkedIn = document.getElementById("navbar-linkedin");
-if (navbarLinkedIn) navbarLinkedIn.href = c.links.linkedin;
+initNavbar();
 
 // HERO
 setText("hero-title-line1", c.hero.titleLine1);
-setText("hero-title-line2", c.hero.titleLine2);
+const titleLine2El = document.getElementById("hero-title-line2");
+if (titleLine2El) {
+  if (c.hero.titleLine2) {
+    titleLine2El.textContent = c.hero.titleLine2;
+  } else {
+    titleLine2El.style.display = "none";
+    const br = titleLine2El.previousElementSibling;
+    if (br && br.tagName === "BR") br.style.display = "none";
+  }
+}
 setText("hero-subtitle", c.hero.subtitle);
 
 setText("hero-name", c.personal.name);
@@ -54,12 +29,8 @@ if (profilePhoto) {
   } else {
     profilePhoto.parentElement.style.display = "none";
   }
-  // Click auf Profilbild scrollt zur Kontaktsektion
   profilePhoto.addEventListener("click", () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+    window.location.href = "contact.html";
   });
   profilePhoto.style.cursor = "pointer";
 }
@@ -72,90 +43,21 @@ setText("hero-primary-cta", c.hero.primaryCta);
 setText("hero-tertiary-cta", c.hero.tertiaryCta);
 setText("hero-secondary-cta", c.hero.secondaryCta);
 
-// KONTAKT – E-Mail + Links
-const emailLink = document.getElementById("contact-email-link");
-if (emailLink) {
-  emailLink.textContent = c.personal.email;
-  emailLink.href = `mailto:${c.personal.email}`;
-}
-
-const emailButton = document.getElementById("contact-email-link-btn");
-if (emailButton) {
-  emailButton.textContent = c.sections.contact.ctaButtonLabel;
-  emailButton.addEventListener("click", () => {
-    window.location.href = `mailto:${c.personal.email}`;
+// SKILLS
+const skillsContainer = document.getElementById("skills-tags");
+if (skillsContainer && Array.isArray(c.personal.skills)) {
+  c.personal.skills.forEach((skill) => {
+    const tag = document.createElement("span");
+    tag.className = "skill-tag";
+    tag.textContent = skill;
+    skillsContainer.appendChild(tag);
   });
 }
 
-// Social / CV
-const linkLinkedIn = document.getElementById("link-linkedin");
-if (linkLinkedIn) linkLinkedIn.href = c.links.linkedin;
-
-const linkGithub = document.getElementById("link-github");
-if (linkGithub) linkGithub.href = c.links.github;
-
-// SECTIONS – Überschriften & Texte
-setText("work-title", c.sections.work.title);
-setText("work-subtitle", c.sections.work.subtitle);
-
-setText("about-title", c.sections.about.title);
-setText("about-subtitle", c.sections.about.subtitle);
-
-setText("contact-title", c.sections.contact.title);
-setText("contact-subtitle", c.sections.contact.subtitle);
-setText("contact-intro", c.sections.contact.introText);
-setText("contact-email-label-prefix", c.sections.contact.emailLabelPrefix);
-
-// ABOUT-CARDS dynamisch rendern
-const aboutContainer = document.getElementById("about-cards");
-if (aboutContainer && Array.isArray(c.aboutCards)) {
-  c.aboutCards.forEach((item) => {
-    const card = document.createElement("article");
-    card.className = "card";
-    card.innerHTML = `
-      <p class="card-tagline">${item.category}</p>
-      <h4 class="card-title">${item.title}</h4>
-      <p class="card-body">${item.body}</p>
-    `;
-    aboutContainer.appendChild(card);
-  });
+// CTA
+const ctaBtn = document.getElementById("cta-email-btn");
+if (ctaBtn) {
+  ctaBtn.href = `mailto:${c.personal.email}`;
 }
 
-// PROJEKTE dynamisch rendern
-const projectsContainer = document.getElementById("projects-container");
-
-if (projectsContainer && Array.isArray(c.projects)) {
-  c.projects.forEach((project) => {
-    const card = document.createElement("a");
-    card.href = `project-detail.html?id=${project.id}`;
-    card.className = "project-card";
-
-    // Füge spezielle Klasse für in-progress Projekte hinzu
-    if (project.status === "in-progress") {
-      card.classList.add("project-card-in-progress");
-    }
-
-    card.innerHTML = `
-      ${project.status === "in-progress" ? '<div class="project-status-badge">In Progress</div>' : ""}
-      <div class="project-category">${project.category}</div>
-      <div class="project-title">${project.title}</div>
-      <div class="project-description">${project.description}</div>
-      <div class="project-tags">
-        ${project.tags
-          .map((tag) => `<span class="project-tag">${tag}</span>`)
-          .join("")}
-      </div>
-    `;
-
-    projectsContainer.appendChild(card);
-  });
-}
-
-// FOOTER
-const yearEl = document.getElementById("year");
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
-
-setText("footer-owner-name", c.footer.ownerName);
-setText("footer-built-with", c.footer.builtWith);
+initFooter();
