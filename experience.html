@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Kontakt – Janis Oldani</title>
+  <title>Berufserfahrung – Janis Oldani</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -19,9 +19,9 @@
 
       <nav class="navbar-nav">
         <a href="work.html" class="navbar-link">Work & Projekte</a>
-        <a href="experience.html" class="navbar-link">Erfahrung</a>
+        <a href="experience.html" class="navbar-link navbar-link-active">Erfahrung</a>
         <a href="about.html" class="navbar-link">Profil & Background</a>
-        <a href="contact.html" class="navbar-link navbar-link-active">Kontakt</a>
+        <a href="contact.html" class="navbar-link">Kontakt</a>
       </nav>
 
       <a class="navbar-social" id="navbar-linkedin" href="#" target="_blank">
@@ -33,33 +33,19 @@
   </header>
 
   <main>
-    <section id="contact">
+    <section id="experience">
       <div class="section-header">
         <div>
-          <h3 class="section-title" id="contact-title"></h3>
-          <p class="section-subtitle" id="contact-subtitle"></p>
+          <h3 class="section-title" id="experience-title"></h3>
+          <p class="section-subtitle" id="experience-subtitle"></p>
         </div>
       </div>
 
-      <div class="contact-box">
-        <div>
-          <p id="contact-intro"></p>
-          <p class="contact-highlight" style="margin-top: 6px;">
-            <span id="contact-email-label-prefix"></span>
-            <a id="contact-email-link"></a>
-          </p>
-        </div>
-
-        <div class="contact-actions">
-          <button id="contact-email-link-btn" class="btn btn-primary"></button>
-          <a class="btn btn-secondary" id="link-linkedin" href="#" target="_blank">LinkedIn</a>
-          <a class="btn btn-secondary" id="link-github" href="#" target="_blank">GitHub</a>
-        </div>
-      </div>
+      <div class="timeline" id="timeline-container"></div>
     </section>
 
     <footer>
-      © <span id="year"></span>
+      &copy; <span id="year"></span>
       <span id="footer-owner-name"></span>.
       <span id="footer-built-with"></span>
     </footer>
@@ -67,7 +53,7 @@
 
   <script src="js/content.js"></script>
   <script src="js/shared.js"></script>
-  <script src="js/page-contact.js"></script>
+  <script src="js/page-experience.js"></script>
 </body>
 
 </html>

@@ -21,4 +21,25 @@ if (aboutContainer && Array.isArray(c.aboutCards)) {
   });
 }
 
+// Testimonials rendern
+const testimonialsContainer = document.getElementById("testimonials-container");
+if (testimonialsContainer && Array.isArray(c.testimonials)) {
+  c.testimonials.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "testimonial-card";
+    card.innerHTML = `
+      <p class="testimonial-quote">${escapeHtml(item.quote)}</p>
+      <p class="testimonial-author">${escapeHtml(item.author)}</p>
+      <p class="testimonial-role">${escapeHtml(item.role)}</p>
+    `;
+    testimonialsContainer.appendChild(card);
+  });
+}
+
+// CV-Download-Button
+const cvBtn = document.getElementById("cv-download-btn");
+if (cvBtn && c.personal.cvUrl) {
+  cvBtn.href = c.personal.cvUrl;
+}
+
 initFooter();

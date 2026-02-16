@@ -11,7 +11,8 @@ window.SITE_CONTENT = {
     photoAlt: "Portr\u00e4tfoto von Janis Oldani",
     aboutShort:
       "Ich verbinde mein BAI-Studium mit Sport, Tech und Daten, um praxisnahe digitale Lösungen zu bauen.",
-    skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Datenanalyse"]
+    skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Datenanalyse"],
+    cvUrl: "assets/cv-janis-oldani.pdf"
   },
 
   availability: {
@@ -42,6 +43,10 @@ window.SITE_CONTENT = {
     about: {
       title: "Profil & Background",
       subtitle: "Kurzfassung von Ausbildung, Erfahrung und Skills."
+    },
+    experience: {
+      title: "Berufserfahrung",
+      subtitle: "Mein bisheriger Werdegang in der Übersicht."
     },
     contact: {
       title: "Kontakt",
@@ -119,6 +124,48 @@ window.SITE_CONTENT = {
       learnings: "",
       githubUrl: "",
       demoUrl: ""
+    }
+  ],
+
+  experience: [
+    {
+      period: "2024 – heute",
+      role: "Platzhalter: Rolle",
+      company: "Platzhalter: Firma",
+      description: "Platzhalter: Beschreibung der Tätigkeit.",
+      tags: ["Platzhalter"]
+    },
+    {
+      period: "2022 – 2024",
+      role: "Platzhalter: Rolle",
+      company: "Platzhalter: Firma",
+      description: "Platzhalter: Beschreibung der Tätigkeit.",
+      tags: ["Platzhalter"]
+    },
+    {
+      period: "2020 – 2022",
+      role: "Platzhalter: Rolle",
+      company: "Platzhalter: Firma",
+      description: "Platzhalter: Beschreibung der Tätigkeit.",
+      tags: ["Platzhalter"]
+    }
+  ],
+
+  testimonials: [
+    {
+      quote: "Platzhalter: Hier kommt ein echtes Zitat hin.",
+      author: "Platzhalter: Name",
+      role: "Platzhalter: Position / Firma"
+    },
+    {
+      quote: "Platzhalter: Hier kommt ein echtes Zitat hin.",
+      author: "Platzhalter: Name",
+      role: "Platzhalter: Position / Firma"
+    },
+    {
+      quote: "Platzhalter: Hier kommt ein echtes Zitat hin.",
+      author: "Platzhalter: Name",
+      role: "Platzhalter: Position / Firma"
     }
   ],
 
