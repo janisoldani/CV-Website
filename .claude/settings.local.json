@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(code --install-extension:*)",
+      "Bash(code:*)",
+      "WebFetch(domain:lauren-waller.com)"
+    ]
+  }
+}
