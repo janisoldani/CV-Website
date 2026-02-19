@@ -47,6 +47,17 @@ if (!project) {
     }
   });
 
+  // Technical Steps (Bullet List)
+  const techStepsList = document.getElementById("tech-steps-list");
+  const techStepsContainer = document.getElementById("project-tech-steps");
+  if (techStepsList && Array.isArray(project.technicalSteps) && project.technicalSteps.length) {
+    techStepsList.innerHTML = project.technicalSteps
+      .map(step => `<li>${escapeHtml(step)}</li>`)
+      .join("");
+  } else if (techStepsContainer) {
+    techStepsContainer.style.display = "none";
+  }
+
   // Screenshots/Media – ausblenden wenn leer
   const mediaSection = document.getElementById("project-media");
   if (mediaSection && !mediaSection.children.length) {

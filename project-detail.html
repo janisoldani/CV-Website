@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  <title>Projekt – Janis Oldani</title>
+  <title>Project – Janis Oldani</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -16,15 +17,15 @@
     <div class="navbar-content">
       <a href="index.html" class="navbar-name" id="navbar-name">
         <div class="navbar-profile-image">
-          <img id="navbar-profile-photo" alt="Profilbild" />
+          <img id="navbar-profile-photo" alt="Profile" />
         </div>
       </a>
       
       <nav class="navbar-nav">
-        <a href="work.html" class="navbar-link">Work & Projekte</a>
-        <a href="experience.html" class="navbar-link">Erfahrung</a>
-        <a href="about.html" class="navbar-link">Profil & Background</a>
-        <a href="contact.html" class="navbar-link">Kontakt</a>
+        <a href="work.html" class="navbar-link">Work</a>
+        <a href="experience.html" class="navbar-link">Experience</a>
+        <a href="about.html" class="navbar-link">About</a>
+        <a href="contact.html" class="navbar-link">Contact</a>
       </nav>
       
       <a class="navbar-social" id="navbar-linkedin" href="#" target="_blank">
@@ -38,7 +39,7 @@
   <main>
     <!-- PROJEKT DETAIL -->
     <section id="project-detail" class="project-detail">
-      <a href="work.html" class="back-link">← Zurück zu Projekten</a>
+      <a href="work.html" class="back-link">&larr; Back to Projects</a>
       
       <div class="project-detail-header">
         <span class="project-detail-category" id="project-category"></span>
@@ -49,31 +50,35 @@
 
       <!-- Problemstellung -->
       <section class="project-detail-section">
-        <h2>Problemstellung</h2>
+        <h2>Problem Statement</h2>
         <p id="project-problemstellung"></p>
       </section>
 
       <!-- Zielsetzung -->
       <section class="project-detail-section">
-        <h2>Zielsetzung</h2>
+        <h2>Objective</h2>
         <p id="project-zielsetzung"></p>
       </section>
 
       <!-- Vorgehen / Tech Stack -->
       <section class="project-detail-section">
-        <h2>Vorgehen & Tech Stack</h2>
+        <h2>Approach & Tech Stack</h2>
         <p id="project-vorgehen"></p>
+        <div class="project-tech-steps" id="project-tech-steps">
+          <h3 class="tech-steps-title">Technical Implementation:</h3>
+          <ul class="tech-steps-list" id="tech-steps-list"></ul>
+        </div>
       </section>
 
       <!-- Lösung -->
       <section class="project-detail-section">
-        <h2>Lösung</h2>
+        <h2>Solution</h2>
         <p id="project-losung"></p>
       </section>
 
       <!-- Screenshots / Diagramme -->
       <section class="project-detail-section">
-        <h2>Screenshots & Diagramme</h2>
+        <h2>Screenshots & Diagrams</h2>
         <div id="project-media"></div>
       </section>
 

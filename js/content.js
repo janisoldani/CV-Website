@@ -3,21 +3,22 @@
 window.SITE_CONTENT = {
   personal: {
     name: "Janis Oldani",
-    role: "Student Business Artificial Intelligence",
-    location: "Wettingen, Schweiz",
+    role: "Business AI Student",
+    location: "Wettingen, Switzerland",
     email: "janis.oldani@gmx.ch",
     phone: "+41 79 396 79 17",
     photoUrl: "assets/janis-oldani.jpg.jpeg",
-    photoAlt: "Portr\u00e4tfoto von Janis Oldani",
+    photoAlt: "Portrait of Janis Oldani",
+    tagline: "Turning data\ninto decisions.",
     aboutShort:
-      "Ich verbinde mein BAI-Studium mit Sport, Tech und Daten, um praxisnahe digitale Lösungen zu bauen.",
-    skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Datenanalyse"],
+      "I combine my BAI studies with sports, tech and data to build practical digital solutions.",
+    skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Data Analysis"],
     cvUrl: "assets/cv-janis-oldani.pdf"
   },
 
   availability: {
-    pillLabel: "Verfügbar für neue Projekte",
-    statusText: "offen für Anfragen"
+    pillLabel: "Available for new projects",
+    statusText: "open to inquiries"
   },
 
   links: {
@@ -26,55 +27,182 @@ window.SITE_CONTENT = {
   },
 
   hero: {
-    titleLine1: "Code trifft Business – Zukunft entsteht.",
+    titleLine1: "Where Code Meets Business.",
     titleLine2: "",
     subtitle:
-      "Ich studiere Business Artificial Intelligence an der FHNW und kombiniere praktische Bankerfahrung mit technischen Fähigkeiten in Daten, KI und Software, um Mehrwert für Unternehmen zu schaffen.",
-    primaryCta: "Projekte ansehen",
-    secondaryCta: "Kontakt aufnehmen",
-    tertiaryCta: "Berufserfahrung"
+      "I study Business Artificial Intelligence at FHNW and combine practical banking experience with technical skills in data, AI and software to create value for businesses.",
+    primaryCta: "View Projects",
+    secondaryCta: "Get in Touch",
+    tertiaryCta: "Experience"
   },
 
   sections: {
     work: {
-      title: "Work & Projekte",
-      subtitle: "Ausgewählte Uni-, Side- und Kundenprojekte."
+      title: "Selected Work",
+      subtitle: "University, side and client projects."
     },
     about: {
-      title: "Profil & Background",
-      subtitle: "Kurzfassung von Ausbildung, Erfahrung und Skills."
+      title: "Profile & Background",
+      subtitle: "Education, experience and skills at a glance."
     },
     experience: {
-      title: "Berufserfahrung",
-      subtitle: "Mein bisheriger Werdegang in der Übersicht."
+      title: "Experience",
+      subtitle: "My professional journey so far."
     },
     contact: {
-      title: "Kontakt",
-      subtitle: "Lass uns über Projekte oder Kollaborationen sprechen.",
-      introText: "Schreib mir eine kurze Nachricht – ich melde mich schnell zurück.",
-      ctaButtonLabel: "E-Mail schreiben",
-      emailLabelPrefix: "E-Mail:"
+      title: "Let's Talk",
+      subtitle: "Let's discuss projects or collaborations.",
+      introText: "Drop me a message — I'll get back to you quickly.",
+      ctaButtonLabel: "Send Email",
+      emailLabelPrefix: "Email:"
     }
+  },
+
+  aboutIntro: {
+    badge: "About Me",
+    title: "Who I Am",
+    subtitle: "Where athletic discipline meets technical innovation.",
+    text: [
+      "I'm a <strong>Business AI student</strong> at FHNW with a background in banking. There I learned to work in a structured way, perform under pressure and combine customer orientation with analytical thinking.",
+      "Today I combine this experience with technical skills in <strong>AI and modern technologies</strong> to build practical digital solutions. My goal: creating value at the intersection of business and technology."
+    ]
+  },
+
+  quickFacts: [
+    { label: "Location", value: "Wettingen, CH" },
+    { label: "Education", value: "Business AI, FHNW" },
+    { label: "Sports", value: "Football, 2nd League" },
+    { label: "Status", value: "Open to Work", highlight: true }
+  ],
+
+  traits: [
+    {
+      icon: "analytics",
+      title: "Analytical",
+      body: "Data-driven thinking from my BAI studies — I break down complex problems into clear, solvable steps."
+    },
+    {
+      icon: "sports",
+      title: "Disciplined",
+      body: "15+ years of competitive sports taught me: consistency and structure beat talent without effort."
+    },
+    {
+      icon: "target",
+      title: "Solution-Oriented",
+      body: "Whether on the pitch or in code — I focus on results, not obstacles."
+    }
+  ],
+
+  skillCategories: [
+    {
+      icon: "code",
+      title: "Languages",
+      tags: ["Python", "SQL", "HTML/CSS", "JavaScript"]
+    },
+    {
+      icon: "framework",
+      title: "Frameworks & Libraries",
+      tags: ["Pandas", "nltk", "Whisper API", "OpenAI API"]
+    },
+    {
+      icon: "tool",
+      title: "Tools & Platforms",
+      tags: ["Git/GitHub", "VS Code", "Jupyter", "PostgreSQL"]
+    }
+  ],
+
+  sport: {
+    badge: "Sports & Discipline",
+    title: "What Sport Taught Me",
+    subtitle: "Competitive experience as a foundation for structured work.",
+    text: "In competitive sports, every moment counts — whether on the football pitch or the running track. This experience taught me to stay focused under pressure, function as a team player and pursue long-term goals consistently. I bring the same mentality to every project.",
+    tags: ["Teamwork", "Discipline", "Resilience", "Goal-Oriented", "Structure"],
+    stats: [
+      { value: "15+", label: "Years of Sports" },
+      { value: "2nd", label: "League Football" },
+      { value: "5x", label: "Per Week" }
+    ]
+  },
+
+  beyondCode: {
+    badge: "Beyond Code",
+    title: "Life Outside the Terminal",
+    subtitle: "The mountains taught me what code can't.",
+    heroImage: {
+      src: "assets/hiking-alps.jpeg",
+      alt: "Hiking in the Swiss Alps — trail along a mountain lake"
+    },
+    gallery: [
+      {
+        src: "assets/snowboard-powder.jpeg",
+        alt: "Snowboarding in deep powder",
+        label: "Winter",
+        insight: "Adapting to conditions in real time — reading the terrain and committing to a line."
+      },
+      {
+        src: "assets/climbing-rocks.jpeg",
+        alt: "Rock climbing in the mountains",
+        label: "Pushing Limits",
+        insight: "Every hold is a decision. Risk assessment meets commitment — step by step toward the summit."
+      },
+      {
+        src: "assets/camping-alps.jpeg",
+        alt: "Wild camping in the Swiss Alps",
+        label: "Outdoors",
+        insight: "Stepping back to see the bigger picture — self-reliance, planning and clarity from distance."
+      },
+      {
+        src: "assets/football-captain.jpeg",
+        alt: "Playing football as captain, #19",
+        label: "Captain",
+        insight: "Leading a team as captain — communication, responsibility and making decisions under pressure."
+      },
+      {
+        src: "assets/surfing-ocean.jpeg",
+        alt: "Surfing in the ocean",
+        label: "Flow",
+        insight: "Timing and patience — waiting for the right moment, then fully committing."
+      },
+      {
+        src: "assets/drone-winter.jpeg",
+        alt: "Aerial drone shot of a winter river through forest",
+        label: "Drone Photography",
+        insight: "Capturing the world from above — a creative eye for detail, composition and new perspectives."
+      }
+    ],
+    ironman: {
+      title: "Next Goal: Ironman 70.3",
+      text: "1.9 km swim. 90 km bike. 21.1 km run. My next summit isn't a mountain — it's a Half Ironman. Training for this endurance challenge teaches the same principles I apply to every project: break the impossible into manageable steps, stay consistent, and never stop moving forward.",
+      target: "Target: 2027"
+    },
+    transferTags: [
+      "Endurance",
+      "Risk Assessment",
+      "Long-term Planning",
+      "Mental Toughness",
+      "Team Leadership",
+      "Adaptability"
+    ]
   },
 
   aboutCards: [
     {
-      category: "Ausbildung",
+      category: "Education",
       title: "BSc Business Artificial Intelligence, FHNW",
       body:
-        "Schwerpunkte in Datenbanken, angewandter Programmierung (Python), Machine Learning und Informationssystemen. Teamarbeit mit Fokus auf reale Business Cases."
+        "Focus on databases, applied programming (Python), machine learning and information systems. Teamwork with a focus on real business cases."
     },
     {
       category: "Skills",
-      title: "Tech-Stack",
+      title: "Tech Stack",
       body:
-        "Python, SQL, HTML/CSS/JS, Git/GitHub, Datenanalyse. Interesse an AI-gestützten Produkten und automatisierten Workflows."
+        "Python, SQL, HTML/CSS/JS, Git/GitHub, data analysis. Interest in AI-powered products and automated workflows."
     },
     {
       category: "Beyond Tech",
-      title: "Sport & Mindset",
+      title: "Sports & Mindset",
       body:
-        "Aktiver Fussballer (2. Liga) und Läufer, Performance-getrieben, strukturiert und zielorientiert – auf dem Platz und in Projekten."
+        "Active football player (2nd League) and runner, performance-driven, structured and goal-oriented — on the pitch and in projects."
     }
   ],
 
@@ -82,15 +210,23 @@ window.SITE_CONTENT = {
     {
       id: "whisper-arztberichte",
       category: "AI / Data",
-      title: "Automatisierte Arztberichte mit Whisper",
+      title: "Automated Medical Reports with Whisper",
       description:
-        "Pipeline zur Transkription medizinischer Gespräche mit Whisper und anschliessender Strukturierung der Daten.",
+        "Pipeline for transcribing medical conversations with Whisper and subsequent data structuring.",
       tags: ["OpenAI", "Python", "nltk"],
       status: "in-progress",
-      problemstellung: "Die ursprüngliche Herausforderung bestand darin, medizinische Gespräche automatisiert zu transkribieren und für die weitere Datenverarbeitung nutzbar zu machen. Erste Tests zeigten jedoch deutliche Verständnisfehler im Roh-Transkript, wodurch unklar war, ob die Datenqualität für ein anschliessendes Labeling ausreicht. Zusätzlich musste abgeklärt werden, ob manuelle Korrekturen erlaubt und sinnvoll sind, und wie sich die Genauigkeit technisch verbessern lässt.",
-      zielsetzung: "Das Projekt zielte darauf ab, ein funktionierendes End-to-End-Setup aufzubauen, das Audioaufnahmen automatisch verarbeitet, in Text umwandelt, bereinigt und strukturiert. Gleichzeitig sollte geklärt werden, welche Modelle, Parameter und Post-Processing-Schritte notwendig sind, um eine robuste Datenbasis für ein medizinisches KI-System zu schaffen. Ziel war ein technisch sauberes, reproduzierbares Setup, das sich später erweitern lässt.",
-      vorgehen: "Die Audiofiles wurden erfasst, vorverarbeitet und mithilfe von Whisper transkribiert. Die Implementierung erfolgte in Python, inklusive der Modellanbindung, Dateiverarbeitung und automatisierten Ausgabe. Für Vergleichstests kamen unterschiedliche Whisper-Modelle zum Einsatz, um zu beurteilen, ob Modellgrösse und Qualität die Fehlerrate beeinflussen. Parallel wurde die Frage geklärt, ob ein manuelles Korrigieren der Transkripte sinnvoll und vertretbar ist, und welche Optionen zur Qualitätssteigerung existieren (z. B. höherwertige Modelle, Fine-Tuning, Audio-Optimierung).",
-      losung: "Es wurde ein funktionales Transkriptionssystem implementiert, das alle aufgenommenen Gespräche automatisiert einliest, transkribiert und als Textdateien exportiert. Die Resultate sind grundsätzlich nutzbar, weisen jedoch sprachmodelltypische Fehler auf, insbesondere bei Fachbegriffen oder undeutlicher Aussprache. Ergänzend wurde ein Workflow definiert, der sowohl manuelle Korrekturen als auch spätere Verbesserungen durch bessere Modelle oder zusätzliche Verarbeitungsschritte ermöglicht. Die Lösung bildet eine stabile Grundlage für das weitere Labeling und die Entwicklung des eigentlichen KI-Systems.",
+      problemstellung: "The initial challenge was to automatically transcribe medical conversations and make them usable for further data processing. Early tests revealed significant comprehension errors in the raw transcript, making it unclear whether data quality was sufficient for subsequent labeling. Additionally, it needed to be determined whether manual corrections were permissible and practical, and how accuracy could be improved technically.",
+      zielsetzung: "The project aimed to build a functioning end-to-end setup that automatically processes audio recordings, converts them to text, cleans and structures the output. At the same time, it needed to clarify which models, parameters and post-processing steps are required to create a robust data foundation for a medical AI system. The goal was a technically clean, reproducible setup that could be extended later.",
+      vorgehen: "Audio files were captured, preprocessed and transcribed using Whisper. Implementation was done in Python, including model integration, file processing and automated output. Different Whisper model sizes were tested to assess whether model size and quality affect the error rate. In parallel, the question was resolved whether manual transcript correction is practical, and which options exist for quality improvement (e.g. higher-quality models, fine-tuning, audio optimization).",
+      losung: "A functional transcription system was implemented that automatically reads, transcribes and exports all recorded conversations as text files. Results are generally usable but show typical language model errors, particularly with technical terms or unclear pronunciation. Additionally, a workflow was defined that allows both manual corrections and future improvements through better models or additional processing steps. The solution forms a stable foundation for further labeling and development of the actual AI system.",
+      technicalSteps: [
+        "Captured and preprocessed audio files (format, sampling rate)",
+        "Tested Whisper models across different sizes (tiny → large)",
+        "Implemented Python pipeline for batch transcription",
+        "Post-processing with nltk for text cleanup",
+        "Comparative analysis of error rates per model size",
+        "Defined workflow for manual corrections"
+      ],
       learnings: "",
       githubUrl: "",
       demoUrl: ""
@@ -98,9 +234,9 @@ window.SITE_CONTENT = {
     {
       id: "hotel-reservierung",
       category: "University Project",
-      title: "Hotel-Reservierungssystem",
+      title: "Hotel Reservation System",
       description:
-        "Relationales Datenmodell, SQL-Queries und Python-Backend für ein mehrstufiges Buchungssystem.",
+        "Relational data model, SQL queries and Python backend for a multi-stage booking system.",
       tags: ["PostgreSQL", "Python", "DB Design"],
       problemstellung: "",
       zielsetzung: "",
@@ -115,8 +251,8 @@ window.SITE_CONTENT = {
       category: "Side Project",
       title: "Running & Training Dashboard",
       description:
-        "Analyse von Lauf- und Fussballdaten, Visualisierung von Trainings-Load und Pace-Entwicklung.",
-      tags: ["Garmin API", "Pandas", "Visualisierung"],
+        "Analysis of running and football data, visualization of training load and pace development.",
+      tags: ["Garmin API", "Pandas", "Visualization"],
       problemstellung: "",
       zielsetzung: "",
       vorgehen: "",
@@ -129,48 +265,48 @@ window.SITE_CONTENT = {
 
   experience: [
     {
-      period: "2024 – heute",
-      role: "Platzhalter: Rolle",
-      company: "Platzhalter: Firma",
-      description: "Platzhalter: Beschreibung der Tätigkeit.",
-      tags: ["Platzhalter"]
+      period: "2024 – present",
+      role: "Placeholder: Role",
+      company: "Placeholder: Company",
+      description: "Placeholder: Job description.",
+      tags: ["Placeholder"]
     },
     {
       period: "2022 – 2024",
-      role: "Platzhalter: Rolle",
-      company: "Platzhalter: Firma",
-      description: "Platzhalter: Beschreibung der Tätigkeit.",
-      tags: ["Platzhalter"]
+      role: "Placeholder: Role",
+      company: "Placeholder: Company",
+      description: "Placeholder: Job description.",
+      tags: ["Placeholder"]
     },
     {
       period: "2020 – 2022",
-      role: "Platzhalter: Rolle",
-      company: "Platzhalter: Firma",
-      description: "Platzhalter: Beschreibung der Tätigkeit.",
-      tags: ["Platzhalter"]
+      role: "Placeholder: Role",
+      company: "Placeholder: Company",
+      description: "Placeholder: Job description.",
+      tags: ["Placeholder"]
     }
   ],
 
   testimonials: [
     {
-      quote: "Platzhalter: Hier kommt ein echtes Zitat hin.",
-      author: "Platzhalter: Name",
-      role: "Platzhalter: Position / Firma"
+      quote: "Placeholder: Real quote goes here.",
+      author: "Placeholder: Name",
+      role: "Placeholder: Position / Company"
     },
     {
-      quote: "Platzhalter: Hier kommt ein echtes Zitat hin.",
-      author: "Platzhalter: Name",
-      role: "Platzhalter: Position / Firma"
+      quote: "Placeholder: Real quote goes here.",
+      author: "Placeholder: Name",
+      role: "Placeholder: Position / Company"
     },
     {
-      quote: "Platzhalter: Hier kommt ein echtes Zitat hin.",
-      author: "Platzhalter: Name",
-      role: "Platzhalter: Position / Firma"
+      quote: "Placeholder: Real quote goes here.",
+      author: "Placeholder: Name",
+      role: "Placeholder: Position / Company"
     }
   ],
 
   footer: {
     ownerName: "Janis Oldani",
-    builtWith: "Gebaut mit HTML, CSS & JS."
+    builtWith: "Designed & built by Janis Oldani."
   }
 };
