@@ -3,7 +3,14 @@
     "allow": [
       "Bash(code --install-extension:*)",
       "Bash(code:*)",
-      "WebFetch(domain:lauren-waller.com)"
+      "WebFetch(domain:lauren-waller.com)",
+      "WebFetch(domain:www.gianlucamarin.com)",
+      "WebSearch",
+      "WebFetch(domain:gianlucamarin.com)",
+      "WebFetch(domain:www.miroblenke.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
