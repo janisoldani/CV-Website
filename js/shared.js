@@ -47,4 +47,74 @@ function initFooter() {
 
   setText("footer-owner-name", c.footer.ownerName);
   setText("footer-built-with", c.footer.builtWith);
+
+  initTagPopovers();
+}
+
+function initTagPopovers() {
+  const TAG_SELECTOR = ".project-tag, .skill-tag, .project-detail-tag, .detail-tag";
+  const popover = document.createElement("div");
+  popover.className = "tag-popover";
+  popover.setAttribute("role", "tooltip");
+  document.body.appendChild(popover);
+
+  let activeTag = null;
+
+  function show(tag) {
+    const text = tag.textContent.trim();
+    const def = c.tagDefinitions && c.tagDefinitions[text];
+    if (!def) return;
+
+    popover.textContent = def;
+    popover.classList.add("is-visible");
+    activeTag = tag;
+
+    // Position below the tag
+    const rect = tag.getBoundingClientRect();
+    const popW = popover.offsetWidth;
+    const popH = popover.offsetHeight;
+
+    let left = rect.left + rect.width / 2 - popW / 2;
+    let top = rect.bottom + 10;
+
+    // Viewport corrections
+    if (left < 8) left = 8;
+    if (left + popW > window.innerWidth - 8) left = window.innerWidth - popW - 8;
+    if (top + popH > window.innerHeight - 8) {
+      top = rect.top - popH - 10;
+      popover.classList.add("is-above");
+    } else {
+      popover.classList.remove("is-above");
+    }
+
+    popover.style.left = left + window.scrollX + "px";
+    popover.style.top = top + window.scrollY + "px";
+  }
+
+  function hide() {
+    popover.classList.remove("is-visible");
+    popover.classList.remove("is-above");
+    activeTag = null;
+  }
+
+  document.body.addEventListener("click", function (e) {
+    const tag = e.target.closest(TAG_SELECTOR);
+    if (tag) {
+      e.stopPropagation();
+      if (tag === activeTag) {
+        hide();
+      } else {
+        hide();
+        show(tag);
+      }
+      return;
+    }
+    if (!popover.contains(e.target)) {
+      hide();
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") hide();
+  });
 }

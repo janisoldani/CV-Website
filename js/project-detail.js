@@ -58,11 +58,81 @@ if (!project) {
     techStepsContainer.style.display = "none";
   }
 
-  // Screenshots/Media – ausblenden wenn leer
+  // Gallery / Screenshots/Media
   const mediaSection = document.getElementById("project-media");
-  if (mediaSection && !mediaSection.children.length) {
-    const section = mediaSection.closest(".project-detail-section");
-    if (section) section.style.display = "none";
+  const mediaSectionWrapper = mediaSection ? mediaSection.closest(".project-detail-section") : null;
+
+  if (project.gallery && project.gallery.length && mediaSection) {
+    // Update heading
+    const mediaHeading = mediaSectionWrapper ? mediaSectionWrapper.querySelector("h2") : null;
+    if (mediaHeading) mediaHeading.textContent = "Gallery";
+
+    // Render gallery grid
+    const galleryEl = document.createElement("div");
+    galleryEl.className = "project-gallery";
+    project.gallery.forEach((item, idx) => {
+      const cell = document.createElement("div");
+      cell.className = "project-gallery-item";
+      cell.innerHTML = `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy"><span class="project-gallery-label">${escapeHtml(item.label)}</span>`;
+      cell.addEventListener("click", () => openLightbox(idx));
+      galleryEl.appendChild(cell);
+    });
+    mediaSection.appendChild(galleryEl);
+
+    // Lightbox
+    let currentIndex = 0;
+
+    function openLightbox(idx) {
+      currentIndex = idx;
+      const overlay = document.createElement("div");
+      overlay.className = "lightbox";
+      overlay.id = "lightbox-overlay";
+      overlay.innerHTML = `
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">&#8592;</button>
+        <div class="lightbox-content">
+          <img class="lightbox-img" id="lightbox-img" src="" alt="">
+          <p class="lightbox-label" id="lightbox-label"></p>
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">&#8594;</button>
+      `;
+      document.body.appendChild(overlay);
+      updateLightboxImage();
+      document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+      document.getElementById("lightbox-prev").addEventListener("click", (e) => { e.stopPropagation(); navigate(-1); });
+      document.getElementById("lightbox-next").addEventListener("click", (e) => { e.stopPropagation(); navigate(1); });
+      overlay.addEventListener("click", (e) => { if (e.target === overlay) closeLightbox(); });
+      document.addEventListener("keydown", handleKeydown);
+      document.body.style.overflow = "hidden";
+    }
+
+    function updateLightboxImage() {
+      const img = document.getElementById("lightbox-img");
+      const label = document.getElementById("lightbox-label");
+      const item = project.gallery[currentIndex];
+      if (img) { img.src = item.src; img.alt = item.alt; }
+      if (label) label.textContent = item.label;
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + project.gallery.length) % project.gallery.length;
+      updateLightboxImage();
+    }
+
+    function closeLightbox() {
+      const overlay = document.getElementById("lightbox-overlay");
+      if (overlay) overlay.remove();
+      document.removeEventListener("keydown", handleKeydown);
+      document.body.style.overflow = "";
+    }
+
+    function handleKeydown(e) {
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") navigate(-1);
+      else if (e.key === "ArrowRight") navigate(1);
+    }
+  } else if (mediaSection && !mediaSection.children.length) {
+    if (mediaSectionWrapper) mediaSectionWrapper.style.display = "none";
   }
 
   // Links

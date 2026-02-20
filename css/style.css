@@ -629,32 +629,6 @@ h1 span {
 }
 
 /* ============================================
-   Trait Cards
-   ============================================ */
-
-.trait-card {
-  padding-top: 24px;
-}
-
-.trait-icon {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  color: var(--color-accent);
-  margin-bottom: 16px;
-  transition: all 0.25s ease;
-}
-
-.trait-card:hover .trait-icon {
-  border-color: var(--color-accent);
-  background: var(--color-tag-bg);
-}
-
-/* ============================================
    Skill Category Cards
    ============================================ */
 
@@ -684,130 +658,6 @@ h1 span {
 .skill-category-card:hover .skill-category-icon {
   border-color: var(--color-accent);
   background: var(--color-tag-bg);
-}
-
-/* ============================================
-   About – Tab Switch
-   ============================================ */
-
-.about-tabs {
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 0;
-}
-
-.about-tab {
-  flex: 1;
-  padding: 16px 24px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--color-muted);
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  position: relative;
-}
-
-.about-tab:hover {
-  color: var(--color-text);
-  background: var(--color-tag-bg);
-}
-
-.about-tab.is-active {
-  color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
-}
-
-.about-panel {
-  display: none;
-}
-
-.about-panel.is-active {
-  display: block;
-  animation: tabFadeIn 0.35s ease;
-}
-
-@keyframes tabFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ============================================
-   Sport Section
-   ============================================ */
-
-.sport-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.sport-text {
-  font-size: 15px;
-  color: var(--color-muted);
-  line-height: 1.9;
-  margin-bottom: 24px;
-}
-
-.sport-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.sport-stats {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  align-items: start;
-  padding-top: 8px;
-}
-
-.stat-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 24px;
-  border: 1px solid var(--color-border);
-  min-width: 110px;
-  transition: all 0.25s ease;
-}
-
-.stat-block:hover {
-  border-color: var(--color-accent);
-  transform: translateY(-2px);
-}
-
-.stat-value {
-  font-family: var(--font-serif);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 400;
-  color: var(--color-accent);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.stat-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-muted);
 }
 
 /* ============================================
@@ -1143,6 +993,71 @@ footer {
 
 .project-tag:hover {
   border-color: var(--color-accent);
+}
+
+/* All tags clickable */
+.project-tag,
+.skill-tag,
+.project-detail-tag,
+.detail-tag {
+  cursor: pointer;
+}
+
+/* ============================================
+   Tag Popover
+   ============================================ */
+
+.tag-popover {
+  position: absolute;
+  z-index: 2000;
+  max-width: 280px;
+  padding: 14px 18px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+  border: 1px solid var(--color-border);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(4px);
+}
+
+.tag-popover.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Arrow pointing up (default: popover below tag) */
+.tag-popover::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Arrow pointing down (popover above tag) */
+.tag-popover.is-above::before {
+  top: auto;
+  bottom: -6px;
+  transform: translateX(-50%) rotate(225deg);
+}
+
+.tag-popover.is-above {
+  transform: translateY(-4px);
+}
+
+.tag-popover.is-above.is-visible {
+  transform: translateY(0);
 }
 
 /* ============================================
@@ -1655,20 +1570,6 @@ footer {
     gap: 32px;
   }
 
-  .sport-split {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .sport-stats {
-    justify-content: flex-start;
-  }
-
-  .stat-block {
-    min-width: 90px;
-    padding: 18px;
-  }
-
   .section-hero-subtitle {
     margin-bottom: 32px;
   }
@@ -1833,26 +1734,6 @@ footer {
   display: block;
   font-size: 18px;
   margin-bottom: 4px;
-}
-
-/* Transfer tags */
-
-.beyond-transfer {
-  text-align: center;
-}
-
-.beyond-transfer-label {
-  font-size: 13px;
-  color: var(--color-muted);
-  margin-bottom: 16px;
-  font-style: italic;
-}
-
-.beyond-transfer-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
 }
 
 /* Beyond Code responsive */
@@ -2249,5 +2130,181 @@ footer {
 
   .home-nav {
     padding: 32px 16px;
+  }
+}
+
+/* ============================================
+   Project Gallery Grid
+   ============================================ */
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.project-gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+}
+
+.project-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.project-gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-gallery-item:hover .project-gallery-label {
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .project-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Lightbox Overlay
+   ============================================ */
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(10, 10, 10, 0.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  animation: lightboxFadeIn 0.25s ease both;
+}
+
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: calc(100vw - 160px);
+  max-height: 90vh;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-label {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-accent);
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 9001;
+}
+
+.lightbox-close:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.lightbox-nav {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.lightbox-nav:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .lightbox {
+    gap: 12px;
+    padding: 0 8px;
+  }
+
+  .lightbox-content {
+    max-width: calc(100vw - 100px);
+  }
+
+  .lightbox-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .lightbox-label {
+    display: none;
   }
 }

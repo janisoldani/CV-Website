@@ -2,13 +2,6 @@
 
 initNavbar();
 
-// --- SVG icon map ---
-const traitIcons = {
-  analytics: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4h-4z"/></svg>',
-  sports: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/><path d="M12 3v12"/><circle cx="12" cy="21" r="1"/></svg>',
-  target: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>'
-};
-
 const skillIcons = {
   code: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
   framework: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
@@ -42,21 +35,6 @@ if (factsList && Array.isArray(c.quickFacts)) {
   });
 }
 
-// === Trait Cards ===
-const traitsContainer = document.getElementById("traits-container");
-if (traitsContainer && Array.isArray(c.traits)) {
-  c.traits.forEach(trait => {
-    const card = document.createElement("article");
-    card.className = "card trait-card";
-    card.innerHTML = `
-      <div class="trait-icon">${traitIcons[trait.icon] || ""}</div>
-      <h4 class="card-title">${escapeHtml(trait.title)}</h4>
-      <p class="card-body">${escapeHtml(trait.body)}</p>
-    `;
-    traitsContainer.appendChild(card);
-  });
-}
-
 // === Skills Categories ===
 const skillsContainer = document.getElementById("skills-container");
 if (skillsContainer && Array.isArray(c.skillCategories)) {
@@ -74,35 +52,6 @@ if (skillsContainer && Array.isArray(c.skillCategories)) {
     `;
     skillsContainer.appendChild(card);
   });
-}
-
-// === Sport Section ===
-const sport = c.sport;
-if (sport) {
-  setText("sport-badge", sport.badge);
-  setText("sport-title", sport.title);
-  setText("sport-subtitle", sport.subtitle);
-  setText("sport-text", sport.text);
-
-  const sportTags = document.getElementById("sport-tags");
-  if (sportTags) {
-    sportTags.innerHTML = sport.tags
-      .map(tag => `<span class="chip">${escapeHtml(tag)}</span>`)
-      .join("");
-  }
-
-  const sportStats = document.getElementById("sport-stats");
-  if (sportStats && Array.isArray(sport.stats)) {
-    sport.stats.forEach(stat => {
-      const el = document.createElement("div");
-      el.className = "stat-block";
-      el.innerHTML = `
-        <span class="stat-value">${escapeHtml(stat.value)}</span>
-        <span class="stat-label">${escapeHtml(stat.label)}</span>
-      `;
-      sportStats.appendChild(el);
-    });
-  }
 }
 
 // === Beyond Code Section ===
@@ -149,14 +98,6 @@ if (bc) {
       </div>
     `;
   }
-
-  // Transfer tags
-  const transferTags = document.getElementById("beyond-transfer-tags");
-  if (transferTags && Array.isArray(bc.transferTags)) {
-    transferTags.innerHTML = bc.transferTags
-      .map(tag => `<span class="chip">${escapeHtml(tag)}</span>`)
-      .join("");
-  }
 }
 
 // === Testimonials ===
@@ -179,28 +120,5 @@ const cvBtn = document.getElementById("cv-download-btn");
 if (cvBtn && c.personal.cvUrl) {
   cvBtn.href = c.personal.cvUrl;
 }
-
-// === Tab Switch ===
-(function () {
-  const tabs = document.querySelectorAll(".about-tab");
-  const panels = document.querySelectorAll(".about-panel");
-  if (!tabs.length) return;
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      const target = tab.dataset.tab;
-
-      tabs.forEach(t => t.classList.toggle("is-active", t === tab));
-      panels.forEach(p => p.classList.toggle("is-active", p.id === "panel-" + target));
-
-      // Scroll tabs into view if user has scrolled past them
-      const tabBar = tab.parentElement;
-      const tabTop = tabBar.getBoundingClientRect().top;
-      if (tabTop < 60) {
-        tabBar.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    });
-  });
-})();
 
 initFooter();
