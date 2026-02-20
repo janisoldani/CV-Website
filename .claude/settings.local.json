@@ -10,7 +10,11 @@
       "WebFetch(domain:www.miroblenke.com)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(gh auth status:*)",
+      "Bash(where:*)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
