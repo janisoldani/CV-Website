@@ -14,7 +14,28 @@
       "Bash(gh auth status:*)",
       "Bash(where:*)",
       "WebFetch(domain:api.github.com)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:covers.openlibrary.org)",
+      "WebFetch(domain:archive.org)",
+      "WebFetch(domain:arisverlag.ch)",
+      "WebFetch(domain:openlibrary.org)",
+      "WebFetch(domain:shop.arisverlag.ch)",
+      "WebFetch(domain:www.penguin.de)",
+      "WebFetch(domain:www.pearson.de)",
+      "WebFetch(domain:www.fischerverlage.de)",
+      "WebFetch(domain:www.amazon.de)",
+      "WebFetch(domain:www.dumont-buchverlag.de)",
+      "WebFetch(domain:elibrary.pearson.de)",
+      "WebFetch(domain:www.thalia.de)",
+      "WebFetch(domain:www.lehmanns.de)",
+      "WebFetch(domain:www.manulit.de)",
+      "WebFetch(domain:multimedia.knv.de)",
+      "WebFetch(domain:res.cloudinary.com)",
+      "WebFetch(domain:www.buchhaus.ch)",
+      "WebFetch(domain:www.buecher.de)",
+      "WebFetch(domain:www.abebooks.com)",
+      "WebFetch(domain:pictures.abebooks.com)",
+      "WebFetch(domain:pondus-hpg.s3.eu-central-1.amazonaws.com)"
     ]
   }
 }
