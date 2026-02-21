@@ -13,7 +13,7 @@ window.SITE_CONTENT = {
     aboutShort:
       "I combine my BAI studies with sports, tech and data to build practical digital solutions.",
     skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Data Analysis"],
-    cvUrl: "assets/cv-janis-oldani.pdf"
+    cvUrl: "cv.html"
   },
 
   availability: {
@@ -47,7 +47,7 @@ window.SITE_CONTENT = {
     },
     experience: {
       title: "Experience",
-      subtitle: "My professional journey so far."
+      subtitle: "Education and career — often running in parallel."
     },
     contact: {
       title: "Let's Talk",
@@ -91,6 +91,11 @@ window.SITE_CONTENT = {
       icon: "tool",
       title: "Tools & Platforms",
       tags: ["Git/GitHub", "VS Code", "Jupyter", "PostgreSQL"]
+    },
+    {
+      icon: "banking",
+      title: "Banking & Finance",
+      tags: ["Hypothekarfinanzierung", "Konsumgüterleasing", "Arztbetriebskredite", "Liquiditätsplanung", "Client Advisory", "Credit Assessment", "KYC & Compliance", "Portfolio Monitoring"]
     }
   ],
 
@@ -146,6 +151,94 @@ window.SITE_CONTENT = {
       text: "1.9 km swim. 90 km bike. 21.1 km run. My next summit isn't a mountain — it's a Half Ironman. Training for this endurance challenge teaches the same principles I apply to every project: break the impossible into manageable steps, stay consistent, and never stop moving forward.",
       target: "Target: 2027"
     },
+  },
+
+  creativity: {
+    photography: {
+      badge: "Photography & Drone",
+      title: "Through the Lens.",
+      subtitle: "The Swiss Alps — captured from ground and sky. New images coming soon.",
+      heroImage: {
+        src: "assets/hiking-alps.jpeg",
+        alt: "Hiking in the Swiss Alps — trail along a mountain lake"
+      },
+      gallery: [
+        { src: "assets/snowboard-powder.jpeg", alt: "Snowboarding in deep powder", label: "Winter" },
+        { src: "assets/climbing-rocks.jpeg", alt: "Rock climbing in the mountains", label: "Vertical" },
+        { src: "assets/camping-alps.jpeg", alt: "Wild camping in the Swiss Alps", label: "Outdoors" },
+        { src: "assets/football-captain.jpeg", alt: "Playing football as captain, #19", label: "Captain" },
+        { src: "assets/surfing-ocean.jpeg", alt: "Surfing in the ocean", label: "Flow" },
+        { src: "assets/drone-winter.jpeg", alt: "Aerial drone shot of a winter river through forest", label: "Drone" }
+      ]
+    },
+
+    videos: {
+      badge: "Film & Motion",
+      title: "In Motion.",
+      subtitle: "Drone footage and moments captured from above.",
+      items: [
+        { youtubeId: "", title: "Alps from Above", description: "Aerial footage over the Swiss Alps — placeholder." },
+        { youtubeId: "", title: "Winter Flight", description: "Winter drone footage through powder and peaks — placeholder." },
+        { youtubeId: "", title: "Mountain Flow", description: "Rivers, valleys and ridgelines from above — placeholder." },
+        { youtubeId: "", title: "Golden Hour", description: "Last light over alpine terrain — placeholder." }
+      ]
+    },
+
+    books: {
+      badge: "Reading",
+      title: "Books That Shaped Me.",
+      subtitle: "Ideas and stories I keep thinking about.",
+      items: [
+        {
+          title: "Von wegen",
+          author: "Christina Ragettli",
+          genre: "Satire",
+          note: "Sharp, funny and thought-provoking — a book that challenges assumptions with wit.",
+          teaser: "Everything you assume about modern life — Ragettli skewers it with wit that cuts deep. A book that makes you laugh until it makes you think. Then keeps you thinking.",
+          coverUrl: "https://arisverlag.ch/cdn/shop/files/AV-VW-Cover-M.jpg?v=1689336420"
+        },
+        {
+          title: "Schachnovelle",
+          author: "Stefan Zweig",
+          genre: "Novella",
+          note: "Mental strength under extreme pressure. A masterclass in psychological depth.",
+          teaser: "Confined to a hotel room with nothing but a chess manual, a man discovers the terrifying limits of genius. Zweig's most perfect story — finished in one sitting, remembered for a lifetime.",
+          coverUrl: "https://pictures.abebooks.com/isbn/9783596215225-us.jpg"
+        },
+        {
+          title: "Die Dolmetscherin",
+          author: "Titus Müller",
+          genre: "Novel",
+          note: "A story about language, identity and the spaces between cultures.",
+          teaser: "She moves between worlds no one else can cross — carrying secrets that could change everything. A story of courage, language and what we risk for the truth.",
+          coverUrl: "https://www.penguin.de/resource/responsive-image/4518160/280/7/mueller-tdie-dolmetscherin-258157-jpg.jpg"
+        },
+        {
+          title: "22 Bahnen",
+          author: "Caroline Wahl",
+          genre: "Literary Fiction",
+          note: "Grief, swimming and moving forward — honest and quietly powerful.",
+          teaser: "Twenty-two laps, every day — because some things can only be processed in the water. Quiet, precise and quietly devastating. You'll think about the ending long after.",
+          coverUrl: "https://covers.openlibrary.org/b/id/14830304-L.jpg"
+        },
+        {
+          title: "Künstliche Intelligenz: Ein moderner Ansatz",
+          author: "Russell & Norvig",
+          genre: "Technical",
+          note: "The foundational textbook for AI — comprehensive, systematic and essential.",
+          teaser: "The book that defines the field — and makes you realise just how deep the rabbit hole goes. If you want to understand where AI is heading, this is where you start.",
+          coverUrl: "https://pictures.abebooks.com/isbn/9783868944303-us.jpg"
+        },
+        {
+          title: "Can't Hurt Me",
+          author: "David Goggins",
+          genre: "Memoir",
+          note: "Mental toughness and radical self-discipline. Goggins shows what the mind is capable of.",
+          teaser: "David Goggins was told he'd never amount to anything. What followed is almost impossible to believe. This book doesn't just inspire — it rearranges what you think is possible.",
+          coverUrl: "https://covers.openlibrary.org/b/id/13268433-L.jpg"
+        }
+      ]
+    }
   },
 
   projects: [
@@ -259,56 +352,143 @@ window.SITE_CONTENT = {
       githubUrl: "https://github.com/janisoldani/CV-Website",
       demoUrl: ""
     },
-    {
-      id: "photography",
-      category: "Creative / Visual",
-      title: "Drone & Landscape Photography",
-      description:
-        "A visual exploration of the Swiss Alps and beyond — captured from the ground and from above with a drone. Seven images spanning snowboarding, climbing, camping and aerial perspectives.",
-      tags: ["Drone Photography", "Landscape", "Composition"],
-      problemstellung: "Photography has always been a creative outlet alongside coding and sports — but without a curated showcase it remained scattered across devices and platforms.",
-      zielsetzung: "Create a focused gallery that captures the essence of outdoor life: light, motion, environment and perspective — both at eye-level and from the air.",
-      vorgehen: "Every shot was deliberately composed — timing the golden hour, selecting the right vantage point and adjusting exposure for the scene. Drone shots required planning airspace, weather windows and precise flight paths to capture the intended angle.",
-      losung: "A curated set of seven images spanning the Swiss Alps, powder snowboarding, rock climbing, wild camping, football and ocean surfing — each telling a story of movement, environment and creative perspective.",
-      technicalSteps: [],
-      learnings: "",
-      githubUrl: "",
-      demoUrl: "",
-      gallery: [
-        { src: "assets/hiking-alps.jpeg", alt: "Hiking in the Swiss Alps — trail along a mountain lake", label: "Alpine Trail" },
-        { src: "assets/snowboard-powder.jpeg", alt: "Snowboarding in deep powder", label: "Winter" },
-        { src: "assets/climbing-rocks.jpeg", alt: "Rock climbing in the mountains", label: "Vertical" },
-        { src: "assets/camping-alps.jpeg", alt: "Wild camping in the Swiss Alps", label: "Outdoors" },
-        { src: "assets/football-captain.jpeg", alt: "Playing football as captain, #19", label: "Captain" },
-        { src: "assets/surfing-ocean.jpeg", alt: "Surfing in the ocean", label: "Flow" },
-        { src: "assets/drone-winter.jpeg", alt: "Aerial drone shot of a winter river through forest", label: "Drone" }
-      ]
-    }
   ],
 
   experience: [
     {
-      period: "2024 – present",
-      role: "Placeholder: Role",
-      company: "Placeholder: Company",
-      description: "Placeholder: Job description.",
-      tags: ["Placeholder"]
+      period: "2009 – 2013",
+      education: { title: "Primarschule Altenburg" },
+      work: null
     },
     {
-      period: "2022 – 2024",
-      role: "Placeholder: Role",
-      company: "Placeholder: Company",
-      description: "Placeholder: Job description.",
-      tags: ["Placeholder"]
+      period: "2013 – 2018",
+      education: { title: "Bezirksschule Wettingen" },
+      work: null
     },
     {
-      period: "2020 – 2022",
-      role: "Placeholder: Role",
-      company: "Placeholder: Company",
-      description: "Placeholder: Job description.",
-      tags: ["Placeholder"]
+      period: "2018 – 2022",
+      education: {
+        title: "Wirtschaftsmittelschule",
+        institution: "Kantonsschule Baden",
+        note: "School of Economics"
+      },
+      work: null
+    },
+    {
+      period: "2021 – 2023",
+      education: {
+        title: "Basic Banking Education",
+        institution: "CYP – Challenge Your Potential",
+        note: "Banking certification completed in parallel with BEM internship at Migros Bank."
+      },
+      work: {
+        role: "BEM Internship",
+        company: "Migros Bank AG",
+        description: "Two-year programme spanning Private Banking (2021–2022) and Corporate Customers (2022–2023). Private Banking: client consultations, mortgage financing (Hypothekarfinanzierung), property valuations, loan applications, pension provision (3rd pillar) and inheritance cases. Corporate: transaction management, loan portfolio monitoring and senior advisor support."
+      }
+    },
+    {
+      period: "2023 – present",
+      education: {
+        title: "BSc Business Information Technology",
+        institution: "FHNW – Fachhochschule Nordwestschweiz",
+        note: "Specialisation: Business AI — studied in parallel with employment.",
+        current: true
+      },
+      work: {
+        role: "Corporate Customer Advisor",
+        company: "Migros Bank AG",
+        description: "Own client portfolio with full advisory responsibility. Consulting clients on mortgage financing (Hypothekarfinanzierung), consumer goods leasing (Konsumgüterleasing), medical practice credits (Arztbetriebskredite) and liquidity planning (Liquiditätsplanung) — alongside BSc studies at FHNW.",
+        current: true
+      }
     }
   ],
+
+  cv: {
+    workExperience: [
+      {
+        period: "2023 – present",
+        role: "Corporate Customer Advisor",
+        company: "Migros Bank AG",
+        detail: "70% — parallel to BSc studies",
+        bullets: [
+          "Own client portfolio in the corporate customer division",
+          "Client advisory in mortgage financing (Hypothekarfinanzierung), consumer goods leasing (Konsumgüterleasing), medical practice credits (Arztbetriebskredite) and liquidity planning (Liquiditätsplanung)",
+          "Independent management of financing requests and credit assessments"
+        ]
+      },
+      {
+        period: "08/2022 – 08/2023",
+        role: "BEM Intern – Corporate Customers",
+        company: "Migros Bank AG",
+        detail: "",
+        bullets: [
+          "Client request management and senior advisor support",
+          "Transaction processing and portfolio monitoring",
+          "Loan portfolio control and client advisor reporting"
+        ]
+      },
+      {
+        period: "09/2021 – 08/2022",
+        role: "BEM Intern – Private Banking",
+        company: "Migros Bank AG",
+        detail: "",
+        bullets: [
+          "Client reception and initial consultations",
+          "Account opening and customer identification",
+          "Mortgage financing assistance — property valuations, loan applications, letters of credit",
+          "Pension provision (3rd pillar) and investment advisory support",
+          "Inheritance case processing"
+        ]
+      },
+      {
+        period: "08/2020",
+        role: "Accounting & Property Management Intern",
+        company: "Confida Treuhand GmbH",
+        detail: "",
+        bullets: [
+          "Tax return preparation for private clients",
+          "Real estate management support",
+          "Financial and managerial accounting",
+          "Rental agreement processing"
+        ]
+      }
+    ],
+
+    education: [
+      {
+        period: "2023 – present",
+        degree: "BSc Business Information Technology (Business AI)",
+        institution: "FHNW – Fachhochschule Nordwestschweiz",
+        location: "Brugg-Windisch"
+      },
+      {
+        period: "2021 – 2023",
+        degree: "Basic Banking Education",
+        institution: "CYP – Challenge Your Potential",
+        location: "Switzerland"
+      },
+      {
+        period: "2018 – 2022",
+        degree: "Wirtschaftsmittelschule (School of Economics)",
+        institution: "Kantonsschule Baden",
+        location: "Baden"
+      }
+    ],
+
+    certificates: [
+      { name: "Cambridge Assessment English – First (C1)", year: "2021" },
+      { name: "DELF B2 – Diplôme d'études en langue française", year: "2021" },
+      { name: "ICT Advanced-User SIZ", year: "2021" },
+      { name: "16-Award YES-Project (Kantonsschule Baden)", year: "2020" }
+    ],
+
+    languages: [
+      { name: "German", level: "Native" },
+      { name: "English", level: "C1 – Cambridge First" },
+      { name: "French", level: "B2 – DELF" }
+    ]
+  },
 
   testimonials: [
     {
@@ -355,7 +535,15 @@ window.SITE_CONTENT = {
     "Data Analysis": "Systematische Auswertung von Daten für fundierte Entscheidungen.",
     "Drone Photography": "Luftaufnahmen mit einer Drohne — Perspektiven aus der Vogelperspektive.",
     "Landscape": "Naturlandschaften und Aussenphotographie — Licht, Raum und Tiefe.",
-    "Composition": "Bildaufbau und visuelles Gestalten — Gleichgewicht, Linien und Fokus."
+    "Composition": "Bildaufbau und visuelles Gestalten — Gleichgewicht, Linien und Fokus.",
+    "Hypothekarfinanzierung": "Beratung und Strukturierung von Hypothekarkrediten für private und gewerbliche Kunden.",
+    "Konsumgüterleasing": "Finanzierung von Konsumgütern und Fahrzeugen über Leasingverträge im Firmenkundensegment.",
+    "Arztbetriebskredite": "Spezialkredite für Arztpraxen — Finanzierung von Betriebsmitteln und Praxisinvestitionen.",
+    "Liquiditätsplanung": "Analyse und Planung der Liquidität für Unternehmenskunden — Cashflow-Management und kurzfristige Finanzierungen.",
+    "Client Advisory": "Ganzheitliche Kundenberatung — Bedürfnisanalyse, Lösungsentwicklung und Beziehungsmanagement.",
+    "Credit Assessment": "Kreditwürdigkeitsprüfung — Analyse von Bilanzen, Cashflows und Risikoprofilen.",
+    "KYC & Compliance": "Know Your Customer — Identifikation, Sorgfaltspflichten und regulatorische Einhaltung.",
+    "Portfolio Monitoring": "Überwachung und Steuerung von Kreditportfolios — Risikoüberwachung und Berichterstattung."
   },
 
   footer: {

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Experience – Janis Oldani</title>
+  <title>Creativity – Janis Oldani</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,9 +23,9 @@
 
       <nav class="navbar-nav">
         <a href="work.html" class="navbar-link">Work</a>
-        <a href="experience.html" class="navbar-link navbar-link-active">Experience</a>
+        <a href="experience.html" class="navbar-link">Experience</a>
         <a href="about.html" class="navbar-link">About</a>
-        <a href="creativity.html" class="navbar-link">Creativity</a>
+        <a href="creativity.html" class="navbar-link navbar-link-active">Creativity</a>
         <a href="contact.html" class="navbar-link">Contact</a>
       </nav>
 
@@ -38,30 +38,33 @@
   </header>
 
   <main>
-    <section id="experience">
-      <div class="section-badge">Career</div>
-      <h1 class="section-hero-title" id="experience-title"></h1>
-      <p class="section-hero-subtitle" id="experience-subtitle"></p>
 
-      <div class="bt-column-headers">
-        <div class="bt-header-edu">Education</div>
-        <div></div>
-        <div class="bt-header-work">Work Experience</div>
-      </div>
+    <!-- Photography & Drone -->
+    <section id="creativity-photography">
+      <div class="section-badge" id="photo-badge"></div>
+      <h1 class="section-hero-title" id="photo-title"></h1>
+      <p class="section-hero-subtitle" id="photo-subtitle"></p>
 
-      <div class="bt-timeline" id="bilateral-timeline"></div>
+      <div class="beyond-hero" id="photo-hero"></div>
+      <div class="beyond-mosaic creativity-gallery" id="photo-gallery"></div>
+    </section>
 
-      <div class="experience-cta">
-        <a href="cv.html" class="btn btn-primary">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-          </svg>
-          View Resume
-        </a>
-      </div>
+    <!-- Film & Motion -->
+    <section id="creativity-videos">
+      <div class="section-badge" id="video-badge"></div>
+      <h2 class="section-hero-title section-hero-title--sm" id="video-title"></h2>
+      <p class="section-hero-subtitle" id="video-subtitle"></p>
+
+      <div class="video-grid" id="video-container"></div>
+    </section>
+
+    <!-- Books -->
+    <section id="creativity-books">
+      <div class="section-badge" id="books-badge"></div>
+      <h2 class="section-hero-title section-hero-title--sm" id="books-title"></h2>
+      <p class="section-hero-subtitle" id="books-subtitle"></p>
+
+      <div class="book-grid" id="books-container"></div>
     </section>
 
     <footer>
@@ -73,7 +76,7 @@
 
   <script src="js/content.js"></script>
   <script src="js/shared.js"></script>
-  <script src="js/page-experience.js"></script>
+  <script src="js/page-creativity.js"></script>
 </body>
 
 </html>
