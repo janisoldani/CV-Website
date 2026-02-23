@@ -45,7 +45,8 @@
       "Bash(head:*)",
       "Bash(echo exit: $?:*)",
       "Bash(curl:*)",
-      "Bash(cmd:*)"
+      "Bash(cmd:*)",
+      "Bash(ls Projekte\\\\Janis:*)"
     ]
   }
 }
