@@ -21,22 +21,35 @@ function initNavbar() {
   const navbarProfilePhoto = document.getElementById("navbar-profile-photo");
   if (navbarProfilePhoto) {
     if (c.personal.photoUrl) {
-      navbarProfilePhoto.src = c.personal.photoUrl;
+      // OWASP A03: safeSetSrc validates src before assignment (rejects javascript:, data:, http:)
+      safeSetSrc(navbarProfilePhoto, c.personal.photoUrl);
       navbarProfilePhoto.alt = c.personal.photoAlt || c.personal.name;
     }
   }
 
-  // Click auf Profilbild-Container → Kontaktseite
+  // Click on profile image → contact page
   const navbarProfileImage = document.querySelector(".navbar-profile-image");
   if (navbarProfileImage) {
     navbarProfileImage.addEventListener("click", () => {
       window.location.href = "contact.html";
     });
     navbarProfileImage.style.cursor = "pointer";
+    // Accessibility: interactive element needs an accessible label
+    navbarProfileImage.setAttribute("role", "button");
+    navbarProfileImage.setAttribute("aria-label", "Go to contact page");
+    navbarProfileImage.setAttribute("tabindex", "0");
+    navbarProfileImage.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") window.location.href = "contact.html";
+    });
   }
 
   const navbarLinkedIn = document.getElementById("navbar-linkedin");
-  if (navbarLinkedIn) navbarLinkedIn.href = c.links.linkedin;
+  // OWASP A03: safeSetHref validates URL protocol before assigning href
+  if (navbarLinkedIn) {
+    safeSetHref(navbarLinkedIn, c.links.linkedin);
+    // Accessibility: icon-only links need a text alternative (WCAG 1.1.1)
+    navbarLinkedIn.setAttribute("aria-label", "LinkedIn profile (opens in new tab)");
+  }
 }
 
 function initFooter() {
@@ -117,4 +130,44 @@ function initTagPopovers() {
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") hide();
   });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// createPicture — WebP-first <picture> element builder (TODO-03 image performance)
+// ─────────────────────────────────────────────────────────────────────────────
+// Returns a <picture> that serves the .webp version when the browser supports it
+// and falls back to the original JPEG/PNG automatically.
+//
+// WebP files don't need to exist yet — if missing, the browser uses the <img>
+// fallback silently. Once you run scripts/optimize-images.ps1 and the .webp
+// files land in assets/, every gallery image switches to WebP automatically.
+//
+// @param {string}  src          Path to the original image (JPEG/PNG)
+// @param {string}  alt          Alt text for the image
+// @param {object}  [opts]
+//   className  {string}   CSS class applied to the <img>
+//   lazy       {boolean}  Whether to add loading="lazy" (default: true)
+//   priority   {boolean}  Add fetchpriority="high" for above-fold LCP images
+// @returns {HTMLPictureElement}
+function createPicture(src, alt, opts = {}) {
+  const { className = "", lazy = true, priority = false } = opts;
+
+  const picture = document.createElement("picture");
+
+  // WebP source — browser tries this first; 404 on missing .webp is silent
+  const sourceWebp = document.createElement("source");
+  sourceWebp.type = "image/webp";
+  sourceWebp.srcset = src.replace(/\.(jpg|jpeg|png)$/i, ".webp");
+
+  // Fallback <img> with original format
+  const img = document.createElement("img");
+  img.alt = alt;
+  if (className) img.className = className;
+  if (lazy) img.loading = "lazy";
+  if (priority) img.setAttribute("fetchpriority", "high");
+  safeSetSrc(img, src);
+
+  picture.appendChild(sourceWebp);
+  picture.appendChild(img);
+  return picture;
 }

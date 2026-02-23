@@ -13,6 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderCvHeader() {
   const p = c.personal;
+  // OWASP A03: Validate external URLs before embedding in innerHTML.
+  // getSafeHref() validates the protocol (https: / mailto: / relative paths only),
+  // then escapeHtml() encodes the result for safe use in an HTML attribute value.
+  // This prevents javascript: or data: URIs from being injected even if content.js
+  // values were ever tampered with.
+  const safeLinkedIn = escapeHtml(getSafeHref(c.links.linkedin));
+  const safeGithub   = escapeHtml(getSafeHref(c.links.github));
+  const safeEmail    = escapeHtml(getSafeHref(`mailto:${p.email}`));
+
   const el = document.getElementById("cv-doc-header");
   el.innerHTML = `
     <div class="cv-header-top">
@@ -24,13 +33,13 @@ function renderCvHeader() {
     <div class="cv-contact-line">
       <span>${escapeHtml(p.location)}</span>
       <span class="cv-sep">·</span>
-      <a href="mailto:${escapeHtml(p.email)}">${escapeHtml(p.email)}</a>
+      <a href="${safeEmail}">${escapeHtml(p.email)}</a>
       <span class="cv-sep">·</span>
       <span>${escapeHtml(p.phone)}</span>
       <span class="cv-sep">·</span>
-      <a href="${escapeHtml(c.links.linkedin)}" target="_blank">LinkedIn</a>
+      <a href="${safeLinkedIn}" target="_blank">LinkedIn</a>
       <span class="cv-sep">·</span>
-      <a href="${escapeHtml(c.links.github)}" target="_blank">GitHub</a>
+      <a href="${safeGithub}" target="_blank">GitHub</a>
     </div>
   `;
 }

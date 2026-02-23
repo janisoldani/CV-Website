@@ -1,15 +1,31 @@
 // js/project-detail.js
 
 // Get project ID from URL parameters
+// OWASP A03 — Input Validation: validate the ?id= query parameter before use.
+// Allowlist: alphanumeric characters and hyphens only, max 64 chars.
+// This is the ONLY user-controlled input on this static site.
 const urlParams = new URLSearchParams(window.location.search);
-const projectId = urlParams.get("id");
+const projectId = validateUrlParam(urlParams.get("id"), {
+  maxLength: 64,
+  pattern: /^[a-zA-Z0-9-]+$/
+});
 
-// Find project
-const project = c.projects.find(p => p.id === projectId);
+// Find project — projectId is null if validation failed, so no project is found
+const project = projectId ? c.projects.find(p => p.id === projectId) : null;
 
 if (!project) {
   window.location.replace("work.html");
 } else {
+  // Update page title and OG meta tags so sharing a project URL shows the
+  // correct title + description in LinkedIn / WhatsApp previews.
+  document.title = `${project.title} — Janis Oldani`;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.content = project.description;
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.content = `${project.title} — Janis Oldani`;
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.content = project.description;
+
   initNavbar();
 
   // PROJECT DETAIL

@@ -18,6 +18,9 @@ if (intro) {
 
   const aboutText = document.getElementById("about-text");
   if (aboutText) {
+    // NOTE: innerHTML is intentional here — intro.text contains trusted author-written
+    // HTML (<strong> tags for emphasis). This must NEVER render user-supplied data.
+    // Source: content.js (static, version-controlled, not user input).
     aboutText.innerHTML = intro.text.map(p => `<p>${p}</p>`).join("");
   }
 }
@@ -62,25 +65,44 @@ if (bc) {
   setText("beyond-title", bc.title);
   setText("beyond-subtitle", bc.subtitle);
 
-  // Hero image
+  // Hero image — above the fold, mark as high priority for LCP
   const beyondHero = document.getElementById("beyond-hero");
   if (beyondHero && bc.heroImage) {
-    beyondHero.innerHTML = `<img src="${bc.heroImage.src}" alt="${escapeHtml(bc.heroImage.alt)}" class="beyond-hero-img" />`;
+    const img = document.createElement("img");
+    img.className = "beyond-hero-img";
+    img.alt = bc.heroImage.alt;
+    img.setAttribute("fetchpriority", "high");
+    safeSetSrc(img, bc.heroImage.src);
+    beyondHero.appendChild(img);
   }
 
   // Photo mosaic
   const beyondGallery = document.getElementById("beyond-gallery");
   if (beyondGallery && Array.isArray(bc.gallery)) {
-    bc.gallery.forEach(img => {
+    bc.gallery.forEach(item => {
       const card = document.createElement("div");
       card.className = "beyond-mosaic-item";
-      card.innerHTML = `
-        <img src="${img.src}" alt="${escapeHtml(img.alt)}" />
-        <div class="beyond-overlay">
-          <span class="beyond-overlay-label">${escapeHtml(img.label)}</span>
-          <p class="beyond-overlay-insight">${escapeHtml(img.insight)}</p>
-        </div>
-      `;
+
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.alt = item.alt;
+      safeSetSrc(img, item.src);
+
+      const overlay = document.createElement("div");
+      overlay.className = "beyond-overlay";
+
+      const labelSpan = document.createElement("span");
+      labelSpan.className = "beyond-overlay-label";
+      labelSpan.textContent = item.label;
+
+      const insightP = document.createElement("p");
+      insightP.className = "beyond-overlay-insight";
+      insightP.textContent = item.insight;
+
+      overlay.appendChild(labelSpan);
+      overlay.appendChild(insightP);
+      card.appendChild(img);
+      card.appendChild(overlay);
       beyondGallery.appendChild(card);
     });
   }

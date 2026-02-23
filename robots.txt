@@ -1,0 +1,13 @@
+# robots.txt — Janis Oldani Portfolio
+# https://janisoldani.com/robots.txt
+# TODO: Replace https://janisoldani.com with your actual deployed domain.
+
+User-agent: *
+Allow: /
+
+# Keep raw asset sources out of search results
+Disallow: /js/
+Disallow: /css/
+Disallow: /scripts/
+
+Sitemap: https://janisoldani.com/sitemap.xml

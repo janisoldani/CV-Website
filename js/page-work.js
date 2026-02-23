@@ -10,7 +10,8 @@ setText("work-subtitle", c.sections.work.subtitle);
 const projectsContainer = document.getElementById("projects-container");
 
 if (projectsContainer && Array.isArray(c.projects)) {
-  c.projects.forEach((project) => {
+  // hidden: true projects are excluded (e.g. Running Dashboard — content not ready)
+  c.projects.filter(p => !p.hidden).forEach((project) => {
     const card = document.createElement("a");
     card.href = `project-detail.html?id=${project.id}`;
     card.className = "project-card";

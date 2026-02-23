@@ -15,13 +15,14 @@ function renderPhotography() {
   setText("photo-title", photo.title);
   setText("photo-subtitle", photo.subtitle);
 
-  // Hero image
+  // Hero image — above-fold, high priority for LCP
   const heroEl = document.getElementById("photo-hero");
   if (photo.heroImage) {
     const img = document.createElement("img");
     img.className = "beyond-hero-img";
-    img.src = photo.heroImage.src;
     img.alt = photo.heroImage.alt;
+    img.setAttribute("fetchpriority", "high");
+    safeSetSrc(img, photo.heroImage.src);
     heroEl.appendChild(img);
   }
 
@@ -30,12 +31,21 @@ function renderPhotography() {
   photo.gallery.forEach((item, i) => {
     const div = document.createElement("div");
     div.className = "beyond-mosaic-item";
-    div.innerHTML = `
-      <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" />
-      <div class="beyond-overlay">
-        <span class="beyond-overlay-label">${escapeHtml(item.label)}</span>
-      </div>
-    `;
+
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.alt = item.alt;
+    safeSetSrc(img, item.src);
+
+    const overlay = document.createElement("div");
+    overlay.className = "beyond-overlay";
+    const labelSpan = document.createElement("span");
+    labelSpan.className = "beyond-overlay-label";
+    labelSpan.textContent = item.label;
+    overlay.appendChild(labelSpan);
+
+    div.appendChild(img);
+    div.appendChild(overlay);
     div.addEventListener("click", () => openLightbox(i));
     galleryEl.appendChild(div);
   });
@@ -53,11 +63,14 @@ function renderVideos() {
     const card = document.createElement("div");
     card.className = "video-card";
 
-    if (item.youtubeId) {
+    // OWASP A03: Validate YouTube ID format (exactly 11 base64url chars) before
+    // embedding in an iframe src. isValidYouTubeId() rejects any value that could
+    // inject arbitrary paths or query strings into the URL.
+    if (item.youtubeId && isValidYouTubeId(item.youtubeId)) {
       card.innerHTML = `
         <div class="video-embed">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/${escapeHtml(item.youtubeId)}"
+            src="https://www.youtube-nocookie.com/embed/${item.youtubeId}"
             title="${escapeHtml(item.title)}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

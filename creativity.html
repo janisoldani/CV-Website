@@ -1,8 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
+  <!-- ─── Security Headers — see index.html for full server-side guidance ────
+       creativity.html has a wider img-src (external book cover CDNs) and
+       frame-src (YouTube privacy-enhanced mode) compared to other pages.
+  ──────────────────────────────────────────────────────────────────────────-->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://arisverlag.ch https://pictures.abebooks.com https://covers.openlibrary.org https://www.penguin.de; frame-src https://www.youtube-nocookie.com; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="description" content="Beyond the code — photography, drone footage, books and training for the Half Ironman 70.3 by Janis Oldani." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://janisoldani.com/creativity.html" />
+  <meta property="og:title" content="Creativity — Janis Oldani" />
+  <meta property="og:description" content="Photography, drone footage, books and Half Ironman 70.3 training by Janis Oldani." />
+  <meta property="og:image" content="https://janisoldani.com/assets/janis-oldani.jpg.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Creativity – Janis Oldani</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,6 +26,7 @@
 </head>
 
 <body>
+  <a class="skip-to-content" href="#main-content">Skip to main content</a>
   <header class="navbar">
     <div class="navbar-content">
       <a href="index.html" class="navbar-name" id="navbar-name">
@@ -37,7 +51,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
 
     <!-- Photography & Drone -->
     <section id="creativity-photography">
@@ -74,6 +88,7 @@
     </footer>
   </main>
 
+  <script src="js/security.js"></script>
   <script src="js/content.js"></script>
   <script src="js/shared.js"></script>
   <script src="js/page-creativity.js"></script>

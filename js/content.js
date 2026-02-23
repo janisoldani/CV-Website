@@ -3,7 +3,8 @@
 window.SITE_CONTENT = {
   personal: {
     name: "Janis Oldani",
-    role: "Business AI Student",
+    // role is used on the cv.html header — keep accurate
+    role: "Business AI Student @ FHNW",
     location: "Wettingen, Switzerland",
     email: "janis.oldani@gmx.ch",
     phone: "+41 79 396 79 17",
@@ -11,14 +12,19 @@ window.SITE_CONTENT = {
     photoAlt: "Portrait of Janis Oldani",
     tagline: "Turning data\ninto decisions.",
     aboutShort:
-      "I combine my BAI studies with sports, tech and data to build practical digital solutions.",
+      "Business AI student at FHNW and corporate banking advisor at Migros Bank — combining structured finance experience with AI and data engineering to build practical solutions.",
     skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Data Analysis"],
-    cvUrl: "cv.html"
+    cvUrl: "cv.html",
+    // TODO: replace assets/cv-janis-oldani.pdf with your actual current PDF
+    cvPdfUrl: "assets/cv-janis-oldani.pdf"
   },
 
   availability: {
-    pillLabel: "Available for new projects",
-    statusText: "open to inquiries"
+    // Displayed as a pill on the homepage — update when status changes
+    pillLabel: "Open to roles · immediately",
+    statusText: "available immediately",
+    // Shown below the name on the homepage as a positioning label
+    targetRole: "Business AI Engineer"
   },
 
   links: {
@@ -247,7 +253,7 @@ window.SITE_CONTENT = {
       category: "Fullstack / AI",
       title: "Injury Risk Detector",
       description:
-        "Fullstack app that predicts training injury risk based on physiological data (HRV, sleep, RHR) with safety rules and session planning.",
+        "Fullstack app that calculates a 0–100 injury risk score from physiological data (HRV, sleep, RHR) using 6 deterministic safety rules and a 28-day baseline model — with traffic-light visualization and session planning.",
       tags: ["FastAPI", "React", "TypeScript", "Python", "TailwindCSS"],
       status: "in-progress",
       problemstellung: "Athletes and fitness enthusiasts often lack objective data to decide whether a planned training session is safe given their current physiological state. Overtraining leads to preventable injuries, yet most tools only track past workouts without providing forward-looking risk assessments.",
@@ -262,7 +268,7 @@ window.SITE_CONTENT = {
         "Created React frontend with Recharts visualizations",
         "Integrated FIT file import for Garmin data"
       ],
-      learnings: "",
+      learnings: "Deterministic safety rules (R0–R4) built before ML modelling prevented false negatives on critical edge cases — clinical thresholds need override logic, not just model confidence. HRV Z-score normalisation over a 28-day baseline proved more interpretable to end users than raw ML outputs, reinforcing that explainability matters as much as accuracy in health applications.",
       githubUrl: "https://github.com/janisoldani/Injury-Risk-Detector",
       demoUrl: ""
     },
@@ -271,7 +277,7 @@ window.SITE_CONTENT = {
       category: "AI / Data",
       title: "Automated Medical Reports with Whisper",
       description:
-        "Pipeline for transcribing medical conversations with Whisper and subsequent data structuring. Team project — contributed to transcription pipeline and model evaluation.",
+        "Pipeline for transcribing medical conversations with Whisper — benchmarked model sizes from tiny to large and built post-processing with nltk. Team project: contributed to transcription pipeline and model evaluation.",
       tags: ["OpenAI", "Python", "nltk", "Whisper API"],
       status: "in-progress",
       problemstellung: "The initial challenge was to automatically transcribe medical conversations and make them usable for further data processing. Early tests revealed significant comprehension errors in the raw transcript, making it unclear whether data quality was sufficient for subsequent labeling. Additionally, it needed to be determined whether manual corrections were permissible and practical, and how accuracy could be improved technically.",
@@ -286,7 +292,7 @@ window.SITE_CONTENT = {
         "Comparative analysis of error rates per model size",
         "Defined workflow for manual corrections"
       ],
-      learnings: "",
+      learnings: "Audio preprocessing (sampling rate normalisation, noise reduction) had a larger impact on word error rate than upgrading the model size — technical quality of the input matters more than model complexity. Annotation guidelines need to be agreed on before transcription starts, not after: late-stage corrections cost far more time than early alignment on labelling rules.",
       githubUrl: "https://github.com/eli611/Arztbericht-Erstellung-ML-HS-2025",
       demoUrl: ""
     },
@@ -309,12 +315,14 @@ window.SITE_CONTENT = {
         "Implemented user stories with UI helper functions",
         "Managed version control and code reviews via GitHub"
       ],
-      learnings: "",
+      learnings: "Separating the three layers (UI, business logic, data access) from day one made parallel team development significantly smoother — early architecture decisions compound through the entire project. OOP encapsulation via getter/setter methods caught integration bugs earlier than expected, validating the upfront investment in clean class design.",
       githubUrl: "https://github.com/FHNWPythonProject/Hotelreservation",
       demoUrl: ""
     },
     {
       id: "running-dashboard",
+      // hidden: true removes this card from work.html until content is ready
+      hidden: true,
       category: "Side Project",
       title: "Running & Training Dashboard",
       description:
@@ -348,7 +356,7 @@ window.SITE_CONTENT = {
         "Built tag popover system with click-to-reveal definitions",
         "Responsive layout with mobile-first media queries"
       ],
-      learnings: "",
+      learnings: "Building without a framework forces deliberate decisions on every feature — the zero-bundle-overhead performance benefit outweighed the convenience cost. A single-file content architecture (content.js as source of truth) made updates trivial and validated the upfront investment in data-driven design.",
       githubUrl: "https://github.com/janisoldani/CV-Website",
       demoUrl: ""
     },
@@ -398,7 +406,7 @@ window.SITE_CONTENT = {
       work: {
         role: "Corporate Customer Advisor",
         company: "Migros Bank AG",
-        description: "Own client portfolio with full advisory responsibility. Consulting clients on mortgage financing (Hypothekarfinanzierung), consumer goods leasing (Konsumgüterleasing), medical practice credits (Arztbetriebskredite) and liquidity planning (Liquiditätsplanung) — alongside BSc studies at FHNW.",
+        description: "Own portfolio of 50+ corporate clients with full advisory responsibility — credit assessments up to CHF 10M. Consulting on mortgage financing, consumer goods leasing, medical practice credits and liquidity planning, alongside BSc studies at FHNW.",
         current: true
       }
     }
@@ -412,9 +420,9 @@ window.SITE_CONTENT = {
         company: "Migros Bank AG",
         detail: "70% — parallel to BSc studies",
         bullets: [
-          "Own client portfolio in the corporate customer division",
+          "Own portfolio of 50+ corporate clients with full advisory responsibility",
           "Client advisory in mortgage financing (Hypothekarfinanzierung), consumer goods leasing (Konsumgüterleasing), medical practice credits (Arztbetriebskredite) and liquidity planning (Liquiditätsplanung)",
-          "Independent management of financing requests and credit assessments"
+          "Independent credit assessments and financing requests up to CHF 10M"
         ]
       },
       {

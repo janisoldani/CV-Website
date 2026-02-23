@@ -1,8 +1,28 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
+  <!-- ─── Security Headers ───────────────────────────────────────────────────
+       OWASP A05:2021 – Security Misconfiguration
+       These <meta> CSP tags provide browser-enforced protection.
+       IMPORTANT: For full protection, also configure your web server / CDN to
+       send these as HTTP response headers (required for frame-ancestors):
+         Content-Security-Policy  (same value as below)
+         X-Frame-Options: DENY
+         X-Content-Type-Options: nosniff
+         Referrer-Policy: strict-origin-when-cross-origin
+         Permissions-Policy: geolocation=(), microphone=(), camera=()
+  ──────────────────────────────────────────────────────────────────────────-->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="description" content="Janis Oldani — Business AI Engineer. FHNW student and corporate banking advisor at Migros Bank, building data-driven solutions at the intersection of finance and AI. Open to roles immediately." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://janisoldani.com/" />
+  <meta property="og:title" content="Janis Oldani — Business AI Engineer" />
+  <meta property="og:description" content="FHNW Business AI student and corporate banking advisor. Building data-driven solutions at the intersection of finance and AI. Open to roles immediately." />
+  <meta property="og:image" content="https://janisoldani.com/assets/janis-oldani.jpg.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Janis Oldani – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,8 +33,9 @@
 </head>
 
 <body class="home-page">
+  <a class="skip-to-content" href="#main-content">Skip to main content</a>
 
-  <main class="home">
+  <main class="home" id="main-content">
     <div class="home-layout">
 
       <!-- Left column -->
@@ -68,6 +89,7 @@
     </div>
   </main>
 
+  <script src="js/security.js"></script>
   <script src="js/content.js"></script>
   <script src="js/shared.js"></script>
   <script src="js/main.js"></script>
