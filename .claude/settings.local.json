@@ -35,7 +35,17 @@
       "WebFetch(domain:www.buecher.de)",
       "WebFetch(domain:www.abebooks.com)",
       "WebFetch(domain:pictures.abebooks.com)",
-      "WebFetch(domain:pondus-hpg.s3.eu-central-1.amazonaws.com)"
+      "WebFetch(domain:pondus-hpg.s3.eu-central-1.amazonaws.com)",
+      "Bash(grep:*)",
+      "Bash(python3:*)",
+      "Bash(cd:*)",
+      "Bash(powershell:*)",
+      "Bash(cat:*)",
+      "Bash(gh repo:*)",
+      "Bash(head:*)",
+      "Bash(echo exit: $?:*)",
+      "Bash(curl:*)",
+      "Bash(cmd:*)"
     ]
   }
 }
