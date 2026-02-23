@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   renderPhotography();
+  renderDrone();
   renderVideos();
   renderBooks();
   initFooter();
@@ -26,7 +27,7 @@ function renderPhotography() {
     heroEl.appendChild(img);
   }
 
-  // Gallery with lightbox
+  // Gallery
   const galleryEl = document.getElementById("photo-gallery");
   photo.gallery.forEach((item, i) => {
     const div = document.createElement("div");
@@ -46,7 +47,53 @@ function renderPhotography() {
 
     div.appendChild(img);
     div.appendChild(overlay);
-    div.addEventListener("click", () => openLightbox(i));
+    div.addEventListener("click", () => openLightbox(photo.gallery, i));
+    galleryEl.appendChild(div);
+  });
+}
+
+function renderDrone() {
+  const drone = c.creativity.drone;
+  if (!drone) return;
+
+  setText("drone-badge", drone.badge);
+  setText("drone-title", drone.title);
+  setText("drone-subtitle", drone.subtitle);
+
+  // Hero image — lazy since it's below the photography section
+  const heroEl = document.getElementById("drone-hero");
+  if (drone.heroImage && heroEl) {
+    const img = document.createElement("img");
+    img.className = "beyond-hero-img";
+    img.alt = drone.heroImage.alt;
+    img.loading = "lazy";
+    safeSetSrc(img, drone.heroImage.src);
+    heroEl.appendChild(img);
+  }
+
+  // Gallery
+  const galleryEl = document.getElementById("drone-gallery");
+  if (!galleryEl || !drone.gallery || !drone.gallery.length) return;
+
+  drone.gallery.forEach((item, i) => {
+    const div = document.createElement("div");
+    div.className = "beyond-mosaic-item";
+
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.alt = item.alt;
+    safeSetSrc(img, item.src);
+
+    const overlay = document.createElement("div");
+    overlay.className = "beyond-overlay";
+    const labelSpan = document.createElement("span");
+    labelSpan.className = "beyond-overlay-label";
+    labelSpan.textContent = item.label;
+    overlay.appendChild(labelSpan);
+
+    div.appendChild(img);
+    div.appendChild(overlay);
+    div.addEventListener("click", () => openLightbox(drone.gallery, i));
     galleryEl.appendChild(div);
   });
 }
@@ -180,13 +227,14 @@ function closeBookModal() {
   }
 }
 
-// ── Lightbox ──────────────────────────────────────────────
+// ── Lightbox (shared by Photography and Drone galleries) ──
 
 let lightboxEl = null;
 let lightboxIndex = 0;
+let lightboxImages = null;
 
-function openLightbox(index) {
-  const images = c.creativity.photography.gallery;
+function openLightbox(images, index) {
+  lightboxImages = images;
   lightboxIndex = index;
 
   if (!lightboxEl) {
@@ -205,32 +253,32 @@ function openLightbox(index) {
     document.body.appendChild(lightboxEl);
 
     document.getElementById("lb-close").addEventListener("click", closeLightbox);
-    document.getElementById("lb-prev").addEventListener("click", () => navigateLightbox(-1, images));
-    document.getElementById("lb-next").addEventListener("click", () => navigateLightbox(1, images));
+    document.getElementById("lb-prev").addEventListener("click", () => navigateLightbox(-1));
+    document.getElementById("lb-next").addEventListener("click", () => navigateLightbox(1));
     lightboxEl.addEventListener("click", e => { if (e.target === lightboxEl) closeLightbox(); });
     document.addEventListener("keydown", e => {
       if (!lightboxEl || lightboxEl.style.display === "none") return;
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowLeft") navigateLightbox(-1, images);
-      if (e.key === "ArrowRight") navigateLightbox(1, images);
+      if (e.key === "ArrowLeft") navigateLightbox(-1);
+      if (e.key === "ArrowRight") navigateLightbox(1);
     });
   }
 
-  updateLightbox(images);
+  updateLightbox();
   lightboxEl.style.display = "flex";
   document.body.style.overflow = "hidden";
 }
 
-function updateLightbox(images) {
-  const item = images[lightboxIndex];
+function updateLightbox() {
+  const item = lightboxImages[lightboxIndex];
   document.getElementById("lb-img").src = item.src;
   document.getElementById("lb-img").alt = item.alt;
   document.getElementById("lb-label").textContent = item.label;
 }
 
-function navigateLightbox(dir, images) {
-  lightboxIndex = (lightboxIndex + dir + images.length) % images.length;
-  updateLightbox(images);
+function navigateLightbox(dir) {
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  updateLightbox();
 }
 
 function closeLightbox() {

@@ -21,7 +21,7 @@ window.SITE_CONTENT = {
 
   availability: {
     // Displayed as a pill on the homepage — update when status changes
-    pillLabel: "Open to roles · immediately",
+    pillLabel: "Open to work",
     statusText: "available immediately",
     // Shown below the name on the homepage as a positioning label
     targetRole: "Business AI Engineer"
@@ -161,20 +161,60 @@ window.SITE_CONTENT = {
 
   creativity: {
     photography: {
-      badge: "Photography & Drone",
+      badge: "Photography",
       title: "Through the Lens.",
-      subtitle: "The Swiss Alps — captured from ground and sky. New images coming soon.",
+      subtitle: "Mountains, surf and adventure — captured at eye level.",
       heroImage: {
-        src: "assets/hiking-alps.jpeg",
-        alt: "Hiking in the Swiss Alps — trail along a mountain lake"
+        src: "assets/photography/alps-sunset-silhouette.jpeg",
+        alt: "Two silhouettes standing on an alpine plateau at golden sunset"
       },
       gallery: [
-        { src: "assets/snowboard-powder.jpeg", alt: "Snowboarding in deep powder", label: "Winter" },
-        { src: "assets/climbing-rocks.jpeg", alt: "Rock climbing in the mountains", label: "Vertical" },
-        { src: "assets/camping-alps.jpeg", alt: "Wild camping in the Swiss Alps", label: "Outdoors" },
-        { src: "assets/football-captain.jpeg", alt: "Playing football as captain, #19", label: "Captain" },
-        { src: "assets/surfing-ocean.jpeg", alt: "Surfing in the ocean", label: "Flow" },
-        { src: "assets/drone-winter.jpeg", alt: "Aerial drone shot of a winter river through forest", label: "Drone" }
+        { src: "assets/photography/alps-mountain-peak.jpeg",       alt: "Dramatic alpine rock tower rising above the clouds",                     label: "Summit" },
+        { src: "assets/photography/alps-lake-reflection.jpeg",     alt: "Crystal-clear alpine lake reflecting a sharp mountain peak",             label: "Reflection" },
+        { src: "assets/photography/alps-sunset-silhouette.jpeg",   alt: "Two silhouettes on an alpine plateau at golden sunset",                  label: "Golden Hour" },
+        { src: "assets/photography/alps-lake-dawn.jpeg",           alt: "Alpine lake at dawn with a perfect mirror reflection of the peaks",      label: "Dawn" },
+        { src: "assets/photography/alps-turquoise-lake.jpeg",      alt: "Turquoise glacial alpine lake surrounded by jagged grey peaks",          label: "Glacial Blue" },
+        { src: "assets/photography/alps-rocky-lake.jpeg",          alt: "Rocky alpine lake with jagged spires reflected in still water",          label: "Spires" },
+        { src: "assets/photography/alps-crystal-lake.jpeg",        alt: "Crystal clear alpine lake with dramatic rock formations",                label: "Crystal" },
+        { src: "assets/photography/alps-cliffs.jpeg",              alt: "Towering alpine limestone cliffs against a deep blue sky",               label: "Cliffs" },
+        { src: "assets/photography/alps-climber-silhouette.jpeg",  alt: "Climber silhouetted against the sun on a rocky alpine summit",           label: "Climber" },
+        { src: "assets/photography/alps-ridge-hikers.jpeg",        alt: "Two hikers on a high alpine ridge with a panoramic mountain backdrop",   label: "Ridge" },
+        { src: "assets/photography/alps-hiker.jpeg",               alt: "Hiker photographing dramatic alpine cliffs on a summer trail",           label: "Trail" },
+        { src: "assets/photography/alps-summit-station.jpeg",      alt: "Alpine summit station perched on a rocky ridge above the clouds",        label: "Station" },
+        { src: "assets/photography/lake-boat.jpeg",                alt: "Lone boat on a calm Swiss lake under a dramatic cloudy sky",             label: "Still Water" },
+        { src: "assets/photography/sailing.jpeg",                  alt: "Standing on the bow of a sailboat, leaning against the mast",            label: "Sailing" },
+        { src: "assets/photography/mediterranean-beach.jpeg",      alt: "Rocky Mediterranean beach with sun loungers and clear blue water",       label: "Mediterranean" },
+        { src: "assets/photography/surf-beach.jpeg",               alt: "Atlantic surf beach with rolling waves and surfers in the water",        label: "Surf" },
+        { src: "assets/photography/beach-cafe.jpeg",               alt: "Beachside cafe with yellow umbrella overlooking a surf bay",             label: "Beach Cafe" },
+        { src: "assets/photography/morocco-sunset.jpeg",           alt: "Group silhouette watching the sun set over the Atlantic ocean in Morocco", label: "Atlantic Sunset" },
+        { src: "assets/photography/canyon-gorge.jpeg",             alt: "Narrow canyon gorge with rock pools and a small waterfall",              label: "Gorge" },
+        { src: "assets/photography/local-restaurant.jpeg",         alt: "The Local Restaurant street food stall at a surf beach",                 label: "Local" },
+        { src: "assets/photography/edinburgh-sunset.jpeg",         alt: "Edinburgh Castle and church spire silhouetted against a blazing sunset", label: "Edinburgh" },
+        { src: "assets/photography/edinburgh-street.jpeg",         alt: "Victoria Street Edinburgh at night, lit up in vivid colours",            label: "Victoria St" },
+        { src: "assets/photography/edinburgh-balmoral.jpeg",       alt: "The Balmoral Hotel clock tower in Edinburgh against a dramatic sky",     label: "Balmoral" },
+        { src: "assets/photography/urban-steps.jpeg",              alt: "Abstract curved concrete steps — lines and geometry",                    label: "Lines" },
+        { src: "assets/photography/urban-spiral.jpeg",             alt: "Monochrome building with two spiral staircases on the facade",           label: "Spiral" },
+        { src: "assets/photography/autumn-leaves.jpeg",            alt: "Carpet of yellow, red and white autumn leaves on the ground",            label: "Autumn" },
+        { src: "assets/photography/stpauli-stickers.jpeg",         alt: "Wall covered in FC St. Pauli stickers and fan culture",                  label: "St. Pauli" }
+      ]
+    },
+
+    drone: {
+      badge: "Drone",
+      title: "From Above.",
+      subtitle: "The Alps and beyond — seen from a bird's eye view.",
+      heroImage: {
+        src: "assets/photography/drone/drone-alpine-valley.jpeg",
+        alt: "Aerial view of a snow-covered alpine valley with forest and mountains"
+      },
+      gallery: [
+        { src: "assets/photography/drone/drone-alpine-valley.jpeg", alt: "Aerial view of a snow-covered alpine valley with forest and mountains",    label: "Alpine Valley" },
+        { src: "assets/photography/drone/drone-village-night.jpeg", alt: "Aerial night shot of a snow-covered alpine village with mountain backdrop", label: "Village Night" },
+        { src: "assets/photography/drone/drone-village-snow.jpeg",  alt: "Top-down aerial of a snow-covered village and its street grid",            label: "Snow Village" },
+        { src: "assets/photography/drone/drone-river-winter.jpeg",  alt: "Top-down aerial of a frozen river winding through snow-covered trees",     label: "Winter River" },
+        { src: "assets/photography/drone/drone-forest-summer.jpeg", alt: "Top-down aerial of a dense summer forest with a road cutting through",     label: "Forest" },
+        { src: "assets/photography/drone/drone-forest-autumn.jpeg", alt: "Top-down aerial of a forest in late autumn with bare and sparse trees",    label: "Autumn Forest" },
+        { src: "assets/photography/drone/drone-city-night.jpeg",    alt: "Top-down aerial of city streets at night lit by orange street lamps",      label: "City Night" }
       ]
     },
 
