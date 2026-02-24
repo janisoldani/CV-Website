@@ -101,6 +101,12 @@ function renderDrone() {
 function renderVideos() {
   const vid = c.creativity.videos;
 
+  if (vid.hidden) {
+    const section = document.getElementById("creativity-videos");
+    if (section) section.style.display = "none";
+    return;
+  }
+
   setText("video-badge", vid.badge);
   setText("video-title", vid.title);
   setText("video-subtitle", vid.subtitle);
@@ -271,8 +277,9 @@ function openLightbox(images, index) {
 
 function updateLightbox() {
   const item = lightboxImages[lightboxIndex];
-  document.getElementById("lb-img").src = item.src;
-  document.getElementById("lb-img").alt = item.alt;
+  const img = document.getElementById("lb-img");
+  safeSetSrc(img, item.src);
+  img.alt = item.alt;
   document.getElementById("lb-label").textContent = item.label;
 }
 

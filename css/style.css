@@ -1985,6 +1985,9 @@ footer {
 }
 
 /* Centered divider line */
+/* grid-column: 2 is required — ::before is a grid item per spec, so without
+   explicit placement it auto-places to column 1, pushing the sidebar into the
+   1px divider column and blocking pointer-events on the social icons. */
 
 .home-layout::before {
   content: "";
@@ -1992,12 +1995,21 @@ footer {
   background: var(--color-border);
   width: 1px;
   height: 100%;
+  grid-column: 2;
+}
+
+.home-sidebar {
+  grid-column: 1;
+}
+
+.home-nav {
+  grid-column: 3;
 }
 
 /* Sidebar – Name + Bio, vertically centered */
 
 .home-sidebar {
-  padding: 40px;
+  padding: 40px 40px 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2128,7 +2140,7 @@ footer {
 
 .home-nav-link {
   font-family: var(--font-serif);
-  font-size: clamp(56px, 10vw, 120px);
+  font-size: clamp(52px, 16vh, 150px);
   font-weight: 400;
   line-height: 1.05;
   color: var(--color-text);

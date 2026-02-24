@@ -126,7 +126,7 @@ if (!project) {
       const img = document.getElementById("lightbox-img");
       const label = document.getElementById("lightbox-label");
       const item = project.gallery[currentIndex];
-      if (img) { img.src = item.src; img.alt = item.alt; }
+      if (img) { safeSetSrc(img, item.src); img.alt = item.alt; }
       if (label) label.textContent = item.label;
     }
 

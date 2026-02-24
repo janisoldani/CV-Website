@@ -125,7 +125,10 @@ if (bc) {
 
 // === Testimonials ===
 const testimonialsContainer = document.getElementById("testimonials-container");
-if (testimonialsContainer && Array.isArray(c.testimonials)) {
+if (!Array.isArray(c.testimonials) || c.testimonials.length === 0) {
+  const section = document.getElementById("testimonials");
+  if (section) section.style.display = "none";
+} else if (testimonialsContainer) {
   c.testimonials.forEach(item => {
     const card = document.createElement("div");
     card.className = "testimonial-card";
@@ -140,8 +143,8 @@ if (testimonialsContainer && Array.isArray(c.testimonials)) {
 
 // === CV Download ===
 const cvBtn = document.getElementById("cv-download-btn");
-if (cvBtn && c.personal.cvUrl) {
-  cvBtn.href = c.personal.cvUrl;
+if (cvBtn) {
+  safeSetHref(cvBtn, c.personal.cvPdfUrl);
 }
 
 initFooter();

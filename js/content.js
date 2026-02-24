@@ -8,15 +8,14 @@ window.SITE_CONTENT = {
     location: "Wettingen, Switzerland",
     email: "janis.oldani@gmx.ch",
     phone: "+41 79 396 79 17",
-    photoUrl: "assets/janis-oldani.jpg.jpeg",
+    photoUrl: "assets/janis-oldani.jpg",
     photoAlt: "Portrait of Janis Oldani",
     tagline: "Turning data\ninto decisions.",
     aboutShort:
       "Business AI student at FHNW and corporate banking advisor at Migros Bank — combining structured finance experience with AI and data engineering to build practical solutions.",
     skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Data Analysis"],
     cvUrl: "cv.html",
-    // TODO: replace assets/cv-janis-oldani.pdf with your actual current PDF
-    cvPdfUrl: "assets/cv-janis-oldani.pdf"
+    cvPdfUrl: "assets/CV Janis Oldani.pdf"
   },
 
   availability: {
@@ -101,7 +100,7 @@ window.SITE_CONTENT = {
     {
       icon: "banking",
       title: "Banking & Finance",
-      tags: ["Hypothekarfinanzierung", "Konsumgüterleasing", "Arztbetriebskredite", "Liquiditätsplanung", "Client Advisory", "Credit Assessment", "KYC & Compliance", "Portfolio Monitoring"]
+      tags: ["Mortgage Financing", "Consumer Leasing", "Medical Practice Lending", "Liquidity Planning", "Client Advisory", "Credit Assessment", "KYC & Compliance", "Portfolio Monitoring"]
     }
   ],
 
@@ -219,14 +218,16 @@ window.SITE_CONTENT = {
     },
 
     videos: {
+      // hidden: true removes this section from creativity.html until YouTube IDs are ready
+      hidden: true,
       badge: "Film & Motion",
       title: "In Motion.",
       subtitle: "Drone footage and moments captured from above.",
       items: [
-        { youtubeId: "", title: "Alps from Above", description: "Aerial footage over the Swiss Alps — placeholder." },
-        { youtubeId: "", title: "Winter Flight", description: "Winter drone footage through powder and peaks — placeholder." },
-        { youtubeId: "", title: "Mountain Flow", description: "Rivers, valleys and ridgelines from above — placeholder." },
-        { youtubeId: "", title: "Golden Hour", description: "Last light over alpine terrain — placeholder." }
+        { youtubeId: "", title: "Alps from Above", description: "Aerial footage over the Swiss Alps." },
+        { youtubeId: "", title: "Winter Flight", description: "Winter drone footage through powder and peaks." },
+        { youtubeId: "", title: "Mountain Flow", description: "Rivers, valleys and ridgelines from above." },
+        { youtubeId: "", title: "Golden Hour", description: "Last light over alpine terrain." }
       ]
     },
 
@@ -293,7 +294,7 @@ window.SITE_CONTENT = {
       category: "Fullstack / AI",
       title: "Injury Risk Detector",
       description:
-        "Fullstack app that calculates a 0–100 injury risk score from physiological data (HRV, sleep, RHR) using 6 deterministic safety rules and a 28-day baseline model — with traffic-light visualization and session planning.",
+        "Fullstack training safety tool — computes a real-time 0–100 injury risk score from HRV, sleep and resting heart rate. Six deterministic safety rules override ML predictions for critical conditions, ensuring the system never clears a session when the athlete shows danger signals. Includes session planner, FIT file import and Recharts visualizations.",
       tags: ["FastAPI", "React", "TypeScript", "Python", "TailwindCSS"],
       status: "in-progress",
       problemstellung: "Athletes and fitness enthusiasts often lack objective data to decide whether a planned training session is safe given their current physiological state. Overtraining leads to preventable injuries, yet most tools only track past workouts without providing forward-looking risk assessments.",
@@ -317,7 +318,7 @@ window.SITE_CONTENT = {
       category: "AI / Data",
       title: "Automated Medical Reports with Whisper",
       description:
-        "Pipeline for transcribing medical conversations with Whisper — benchmarked model sizes from tiny to large and built post-processing with nltk. Team project: contributed to transcription pipeline and model evaluation.",
+        "Medical conversation transcription pipeline using OpenAI Whisper — benchmarked 5 model variants (tiny → large) to identify optimal accuracy/cost trade-offs. Built post-processing with nltk for text cleanup. Team project: led transcription pipeline implementation and model evaluation, forming the data foundation for a downstream medical AI labelling system.",
       tags: ["OpenAI", "Python", "nltk", "Whisper API"],
       status: "in-progress",
       problemstellung: "The initial challenge was to automatically transcribe medical conversations and make them usable for further data processing. Early tests revealed significant comprehension errors in the raw transcript, making it unclear whether data quality was sufficient for subsequent labeling. Additionally, it needed to be determined whether manual corrections were permissible and practical, and how accuracy could be improved technically.",
@@ -341,7 +342,7 @@ window.SITE_CONTENT = {
       category: "University Project",
       title: "Hotel Reservation System",
       description:
-        "Three-layer Python application with SQLite for hotel bookings — OOP design, entity modeling and user stories. Team project — responsible for business logic implementation.",
+        "Full hotel reservation system built in a 4-person team — clean three-layer architecture (UI, business logic, data access) covering the complete booking lifecycle: guests, rooms, reservations and invoices. Responsible for business logic layer, ER modelling and version control management.",
       tags: ["Python", "SQLite", "OOP", "DB Design"],
       problemstellung: "The project required building a functional hotel reservation system as part of an FHNW semester project. The challenge was to translate business requirements into a clean object-oriented architecture while coordinating work across a four-person team with varying experience levels.",
       zielsetzung: "Design and implement a complete reservation system with a three-layer architecture (UI, business logic, data access), covering entities like Hotel, Room, Guest, Booking and Invoice. The system should demonstrate solid OOP principles, database integration and collaborative development.",
@@ -381,7 +382,7 @@ window.SITE_CONTENT = {
       category: "Side Project",
       title: "Personal Portfolio Website",
       description:
-        "Multi-page portfolio with editorial design, data-driven content architecture and interactive elements — built from scratch without frameworks.",
+        "Framework-free multi-page portfolio with a data-driven content architecture — all site text lives in a single JS file, making updates trivial. Zero external JS dependencies, full CSP security hardening and OWASP-aligned input validation throughout.",
       tags: ["HTML/CSS", "JavaScript", "Git/GitHub"],
       status: "",
       problemstellung: "A personal online presence was needed that goes beyond a standard CV — one that reflects both technical skills and personality while remaining easy to maintain and extend.",
@@ -405,20 +406,19 @@ window.SITE_CONTENT = {
   experience: [
     {
       period: "2009 – 2013",
-      education: { title: "Primarschule Altenburg" },
+      education: { title: "Primary School Altenburg" },
       work: null
     },
     {
       period: "2013 – 2018",
-      education: { title: "Bezirksschule Wettingen" },
+      education: { title: "Secondary School Wettingen" },
       work: null
     },
     {
       period: "2018 – 2022",
       education: {
-        title: "Wirtschaftsmittelschule",
-        institution: "Kantonsschule Baden",
-        note: "School of Economics"
+        title: "School of Economics",
+        institution: "Kantonsschule Baden"
       },
       work: null
     },
@@ -432,7 +432,7 @@ window.SITE_CONTENT = {
       work: {
         role: "BEM Internship",
         company: "Migros Bank AG",
-        description: "Two-year programme spanning Private Banking (2021–2022) and Corporate Customers (2022–2023). Private Banking: client consultations, mortgage financing (Hypothekarfinanzierung), property valuations, loan applications, pension provision (3rd pillar) and inheritance cases. Corporate: transaction management, loan portfolio monitoring and senior advisor support."
+        description: "Two-year programme spanning Private Banking (2021–2022) and Corporate Customers (2022–2023). Private Banking: client consultations, mortgage financing, property valuations, loan applications, pension provision (3rd pillar) and inheritance cases. Corporate: transaction management, loan portfolio monitoring and senior advisor support."
       }
     },
     {
@@ -461,7 +461,7 @@ window.SITE_CONTENT = {
         detail: "70% — parallel to BSc studies",
         bullets: [
           "Own portfolio of 50+ corporate clients with full advisory responsibility",
-          "Client advisory in mortgage financing (Hypothekarfinanzierung), consumer goods leasing (Konsumgüterleasing), medical practice credits (Arztbetriebskredite) and liquidity planning (Liquiditätsplanung)",
+          "Client advisory in mortgage financing, consumer goods leasing, medical practice credits and liquidity planning",
           "Independent credit assessments and financing requests up to CHF 10M"
         ]
       },
@@ -518,7 +518,7 @@ window.SITE_CONTENT = {
       },
       {
         period: "2018 – 2022",
-        degree: "Wirtschaftsmittelschule (School of Economics)",
+        degree: "School of Economics",
         institution: "Kantonsschule Baden",
         location: "Baden"
       }
@@ -538,60 +538,44 @@ window.SITE_CONTENT = {
     ]
   },
 
-  testimonials: [
-    {
-      quote: "Placeholder: Real quote goes here.",
-      author: "Placeholder: Name",
-      role: "Placeholder: Position / Company"
-    },
-    {
-      quote: "Placeholder: Real quote goes here.",
-      author: "Placeholder: Name",
-      role: "Placeholder: Position / Company"
-    },
-    {
-      quote: "Placeholder: Real quote goes here.",
-      author: "Placeholder: Name",
-      role: "Placeholder: Position / Company"
-    }
-  ],
+  testimonials: [],
 
   tagDefinitions: {
-    "Python": "Vielseitige Programmiersprache für Web, Data Science und Automatisierung.",
-    "SQL": "Abfragesprache für relationale Datenbanken und Datenanalyse.",
-    "HTML/CSS": "Grundbausteine des Webs – Struktur (HTML) und Gestaltung (CSS).",
-    "HTML/CSS/JS": "Die drei Kerntechnologien für Frontend-Webentwicklung.",
-    "JavaScript": "Die Programmiersprache des Webs – interaktive Websites und Anwendungen.",
-    "Pandas": "Python-Bibliothek für Datenmanipulation und -analyse mit DataFrames.",
-    "nltk": "Natural Language Toolkit – Python-Bibliothek für Textverarbeitung und NLP.",
-    "Whisper API": "OpenAI-Modell zur automatischen Spracherkennung und Transkription.",
-    "OpenAI API": "Schnittstelle zu OpenAI-Modellen für Text, Bild und Sprache.",
-    "OpenAI": "KI-Forschungsunternehmen – bekannt für GPT, DALL·E und Whisper.",
-    "Git/GitHub": "Versionskontrolle (Git) und Plattform für Code-Zusammenarbeit (GitHub).",
-    "VS Code": "Leichtgewichtiger Code-Editor von Microsoft mit starkem Ökosystem.",
-    "Jupyter": "Interaktive Notebooks für Data Science, Visualisierung und Prototyping.",
-    "PostgreSQL": "Leistungsfähiges Open-Source-Datenbanksystem für komplexe Abfragen.",
-    "FastAPI": "Modernes Python-Web-Framework für schnelle, typsichere APIs.",
-    "React": "JavaScript-Bibliothek von Meta für komponentenbasierte Benutzeroberflächen.",
-    "TypeScript": "JavaScript mit statischer Typisierung für robusteren Code.",
-    "TailwindCSS": "Utility-first CSS-Framework für schnelles, konsistentes Styling.",
-    "SQLite": "Kompakte, dateibasierte SQL-Datenbank – ideal für kleinere Projekte.",
-    "OOP": "Objektorientierte Programmierung – Strukturierung durch Klassen und Objekte.",
-    "DB Design": "Entwurf von Datenbankstrukturen, Beziehungen und Normalisierung.",
-    "Garmin API": "Schnittstelle zu Garmin-Sportuhren für Trainings- und Gesundheitsdaten.",
-    "Visualization": "Grafische Darstellung von Daten zur Erkennung von Mustern und Trends.",
-    "Data Analysis": "Systematische Auswertung von Daten für fundierte Entscheidungen.",
-    "Drone Photography": "Luftaufnahmen mit einer Drohne — Perspektiven aus der Vogelperspektive.",
-    "Landscape": "Naturlandschaften und Aussenphotographie — Licht, Raum und Tiefe.",
-    "Composition": "Bildaufbau und visuelles Gestalten — Gleichgewicht, Linien und Fokus.",
-    "Hypothekarfinanzierung": "Beratung und Strukturierung von Hypothekarkrediten für private und gewerbliche Kunden.",
-    "Konsumgüterleasing": "Finanzierung von Konsumgütern und Fahrzeugen über Leasingverträge im Firmenkundensegment.",
-    "Arztbetriebskredite": "Spezialkredite für Arztpraxen — Finanzierung von Betriebsmitteln und Praxisinvestitionen.",
-    "Liquiditätsplanung": "Analyse und Planung der Liquidität für Unternehmenskunden — Cashflow-Management und kurzfristige Finanzierungen.",
-    "Client Advisory": "Ganzheitliche Kundenberatung — Bedürfnisanalyse, Lösungsentwicklung und Beziehungsmanagement.",
-    "Credit Assessment": "Kreditwürdigkeitsprüfung — Analyse von Bilanzen, Cashflows und Risikoprofilen.",
-    "KYC & Compliance": "Know Your Customer — Identifikation, Sorgfaltspflichten und regulatorische Einhaltung.",
-    "Portfolio Monitoring": "Überwachung und Steuerung von Kreditportfolios — Risikoüberwachung und Berichterstattung."
+    "Python": "Versatile programming language for data science, web and automation.",
+    "SQL": "Query language for relational databases and data analysis.",
+    "HTML/CSS": "The building blocks of the web — structure (HTML) and style (CSS).",
+    "HTML/CSS/JS": "The three core technologies of frontend web development.",
+    "JavaScript": "The language of the web — interactive websites and applications.",
+    "Pandas": "Python library for data manipulation and analysis with DataFrames.",
+    "nltk": "Natural Language Toolkit — Python library for text processing and NLP.",
+    "Whisper API": "OpenAI's automatic speech recognition and transcription model.",
+    "OpenAI API": "Interface to OpenAI models for text, image and speech.",
+    "OpenAI": "AI research company — known for GPT, DALL·E and Whisper.",
+    "Git/GitHub": "Version control (Git) and platform for code collaboration (GitHub).",
+    "VS Code": "Lightweight code editor by Microsoft with a strong ecosystem.",
+    "Jupyter": "Interactive notebooks for data science, visualisation and prototyping.",
+    "PostgreSQL": "Powerful open-source database for complex queries and large datasets.",
+    "FastAPI": "Modern Python web framework for fast, type-safe APIs.",
+    "React": "JavaScript library by Meta for component-based user interfaces.",
+    "TypeScript": "JavaScript with static typing for more robust and maintainable code.",
+    "TailwindCSS": "Utility-first CSS framework for fast, consistent styling.",
+    "SQLite": "Compact, file-based SQL database — ideal for smaller projects.",
+    "OOP": "Object-Oriented Programming — structuring code through classes and objects.",
+    "DB Design": "Design of database structures, relationships and normalisation.",
+    "Garmin API": "Interface to Garmin sports watches for training and health data.",
+    "Visualization": "Graphical representation of data to identify patterns and trends.",
+    "Data Analysis": "Systematic evaluation of data for informed decision-making.",
+    "Drone Photography": "Aerial photography with a drone — perspectives from a bird's eye view.",
+    "Landscape": "Nature and outdoor photography — light, space and depth.",
+    "Composition": "Visual design and framing — balance, lines and focus.",
+    "Mortgage Financing": "Advisory and structuring of mortgage credits for private and commercial clients.",
+    "Consumer Leasing": "Financing of consumer goods and vehicles via leasing agreements for corporate clients.",
+    "Medical Practice Lending": "Specialised credits for medical practices — financing operating resources and practice investments.",
+    "Liquidity Planning": "Analysis and planning of liquidity for corporate clients — cash flow management and short-term financing.",
+    "Client Advisory": "Holistic client consulting — needs analysis, solution development and relationship management.",
+    "Credit Assessment": "Creditworthiness analysis — evaluation of balance sheets, cash flows and risk profiles.",
+    "KYC & Compliance": "Know Your Customer — identification, due diligence and regulatory compliance.",
+    "Portfolio Monitoring": "Monitoring and management of loan portfolios — risk surveillance and reporting."
   },
 
   footer: {

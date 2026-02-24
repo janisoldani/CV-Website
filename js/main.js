@@ -49,8 +49,7 @@ if (homePhoto && c.personal.photoUrl) {
 }
 
 // ── CV download link → PDF ────────────────────────────────────────────────────
-// Points to the downloadable PDF. Replace assets/cv-janis-oldani.pdf with your
-// current CV file — the 0-byte placeholder must be swapped before going live.
+// Points to assets/CV Janis Oldani.pdf — update cvPdfUrl in content.js to change.
 const homeCvLink = document.getElementById("home-cv-link");
 if (homeCvLink) {
   const pdfUrl = c.personal.cvPdfUrl || c.personal.cvUrl;
