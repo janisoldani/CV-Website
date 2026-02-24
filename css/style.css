@@ -1488,6 +1488,28 @@ footer {
   color: var(--color-accent);
 }
 
+/* Period label inside card — revealed on hover / open */
+.bt-card-period {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-top: 6px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.25s ease, opacity 0.25s ease, margin-top 0.25s ease;
+}
+
+.bt-card[data-expandable]:hover .bt-card-period,
+.bt-card.is-open .bt-card-period {
+  max-height: 24px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
 /* Toggle arrow — CSS chevron */
 .bt-card-toggle {
   display: inline-block;

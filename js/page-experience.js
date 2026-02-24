@@ -10,7 +10,7 @@ setText("experience-subtitle", c.sections.experience.subtitle);
   if (!container || !Array.isArray(c.experience)) return;
 
   // Build a single card (education or work)
-  function makeCard(item, type) {
+  function makeCard(item, type, period) {
     const card = document.createElement("div");
     card.className = "bt-card";
 
@@ -47,6 +47,14 @@ setText("experience-subtitle", c.sections.experience.subtitle);
       card.appendChild(subEl);
     }
 
+    // ── Period label (visible on hover / open) ────────────────────
+    if (hasBullets && period) {
+      const periodEl = document.createElement("div");
+      periodEl.className = "bt-card-period";
+      periodEl.textContent = period;
+      card.appendChild(periodEl);
+    }
+
     // ── Expandable bullets ────────────────────────────────────────
     if (hasBullets) {
       const bulletsDiv = document.createElement("div");
@@ -67,6 +75,12 @@ setText("experience-subtitle", c.sections.experience.subtitle);
     return card;
   }
 
+  // Extract only the start year from a period string (e.g. "2021 – 2023" → "2021", "Aug 2020" → "2020")
+  function startYear(period) {
+    const match = period.match(/\d{4}/);
+    return match ? match[0] : period;
+  }
+
   // ── Render rows ───────────────────────────────────────────────
   c.experience.forEach((row) => {
     const isParallel = row.education && row.work;
@@ -77,14 +91,14 @@ setText("experience-subtitle", c.sections.experience.subtitle);
     // Education cell
     const eduCell = document.createElement("div");
     eduCell.className = "bt-edu-cell";
-    if (row.education) eduCell.appendChild(makeCard(row.education, "edu"));
+    if (row.education) eduCell.appendChild(makeCard(row.education, "edu", row.period));
 
-    // Axis cell
+    // Axis cell — show only start year
     const axisCell = document.createElement("div");
     axisCell.className = "bt-axis-cell";
     const periodEl = document.createElement("div");
     periodEl.className = "bt-period";
-    periodEl.textContent = row.period;
+    periodEl.textContent = startYear(row.period);
     const dotEl = document.createElement("div");
     dotEl.className = isParallel ? "bt-dot bt-dot--parallel" : "bt-dot";
     axisCell.appendChild(periodEl);
@@ -93,7 +107,7 @@ setText("experience-subtitle", c.sections.experience.subtitle);
     // Work cell
     const workCell = document.createElement("div");
     workCell.className = "bt-work-cell";
-    if (row.work) workCell.appendChild(makeCard(row.work, "work"));
+    if (row.work) workCell.appendChild(makeCard(row.work, "work", row.period));
 
     rowEl.appendChild(eduCell);
     rowEl.appendChild(axisCell);
