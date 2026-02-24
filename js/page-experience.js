@@ -96,12 +96,8 @@ setText("experience-subtitle", c.sections.experience.subtitle);
     // Axis cell — show only start year
     const axisCell = document.createElement("div");
     axisCell.className = "bt-axis-cell";
-    const periodEl = document.createElement("div");
-    periodEl.className = "bt-period";
-    periodEl.textContent = startYear(row.period);
     const dotEl = document.createElement("div");
     dotEl.className = isParallel ? "bt-dot bt-dot--parallel" : "bt-dot";
-    axisCell.appendChild(periodEl);
     axisCell.appendChild(dotEl);
 
     // Work cell
