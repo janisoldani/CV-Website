@@ -18,11 +18,17 @@ if (intro) {
 
   const aboutText = document.getElementById("about-text");
   if (aboutText) {
-    // NOTE: innerHTML is intentional here — intro.text contains trusted author-written
-    // HTML (<strong> tags for emphasis). This must NEVER render user-supplied data.
-    // Source: content.js (static, version-controlled, not user input).
-    aboutText.innerHTML = intro.text.map(p => `<p>${p}</p>`).join("");
+    // NOTE: insertAdjacentHTML appends AFTER the badge/h1/subtitle already in #about-text.
+    // intro.text contains trusted author-written HTML (<strong> tags). Must NEVER render
+    // user-supplied data. Source: content.js (static, version-controlled, not user input).
+    aboutText.insertAdjacentHTML("beforeend", intro.text.map(p => `<p>${p}</p>`).join(""));
   }
+}
+
+// === Quick Facts Photo ===
+const quickFactsPhoto = document.getElementById("quick-facts-photo");
+if (quickFactsPhoto) {
+  safeSetSrc(quickFactsPhoto, c.personal.photoUrl);
 }
 
 // === Quick Facts ===
@@ -31,10 +37,35 @@ if (factsList && Array.isArray(c.quickFacts)) {
   c.quickFacts.forEach(fact => {
     const row = document.createElement("div");
     row.className = "quick-facts-row";
-    row.innerHTML = `
-      <span class="quick-facts-label">${escapeHtml(fact.label)}</span>
-      <span class="quick-facts-value${fact.highlight ? " quick-facts-highlight" : ""}">${escapeHtml(fact.value)}</span>
-    `;
+
+    const label = document.createElement("span");
+    label.className = "quick-facts-label";
+    label.textContent = fact.label;
+
+    const value = document.createElement("span");
+    value.className = "quick-facts-value" + (fact.highlight ? " quick-facts-highlight" : "");
+    if (fact.link) {
+      const a = document.createElement("a");
+      a.textContent = fact.value;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      safeSetHref(a, fact.link);
+      a.className = "quick-facts-link";
+      value.appendChild(a);
+    } else {
+      value.textContent = fact.value;
+    }
+
+    row.appendChild(label);
+    row.appendChild(value);
+
+    if (fact.detail) {
+      const tooltip = document.createElement("span");
+      tooltip.className = "fact-tooltip";
+      tooltip.textContent = fact.detail;
+      row.appendChild(tooltip);
+    }
+
     factsList.appendChild(row);
   });
 }

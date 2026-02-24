@@ -602,7 +602,11 @@ h1 span {
   display: grid;
   grid-template-columns: 1fr 380px;
   gap: 48px;
-  align-items: start;
+  align-items: stretch;
+}
+
+#about-text .section-hero-subtitle {
+  margin-bottom: 24px;
 }
 
 .about-text p {
@@ -621,6 +625,8 @@ h1 span {
 .quick-facts {
   border: 1px solid var(--color-border);
   padding: 28px;
+  display: flex;
+  flex-direction: column;
   transition: border-color 0.25s ease;
 }
 
@@ -630,12 +636,23 @@ h1 span {
 
 .quick-facts-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  text-align: center;
+  gap: 16px;
   margin-bottom: 24px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--color-border);
   color: var(--color-text);
+}
+
+.quick-facts-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center 20%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
 }
 
 .quick-facts-header strong {
@@ -651,10 +668,12 @@ h1 span {
 
 .quick-facts-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 8px;
   padding: 10px 0;
   border-bottom: 1px solid var(--color-border);
+  position: relative;
+  cursor: help;
 }
 
 .quick-facts-row:last-child {
@@ -667,17 +686,54 @@ h1 span {
   color: var(--color-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  flex-shrink: 0;
 }
 
 .quick-facts-value {
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text);
+  margin-left: auto;
 }
 
 .quick-facts-highlight {
   color: var(--color-accent);
   font-weight: 600;
+}
+
+.quick-facts-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border);
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.quick-facts-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+.fact-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--color-text);
+  width: 260px;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+.quick-facts-row:hover .fact-tooltip {
+  display: block;
 }
 
 /* ============================================
@@ -1400,7 +1456,101 @@ footer {
 .bt-card {
   display: inline-block;
   text-align: left;
-  max-width: 340px;
+  max-width: 380px;
+  border-top: 2px solid var(--color-border);
+  padding-top: 14px;
+  transition: border-top-color 0.25s ease, transform 0.25s ease;
+}
+
+/* Expandable cards — hover */
+.bt-card[data-expandable] {
+  cursor: pointer;
+}
+
+.bt-card[data-expandable]:hover {
+  border-top-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.bt-card[data-expandable]:hover .bt-card-title,
+.bt-card[data-expandable]:hover .bt-card-role {
+  font-style: italic;
+}
+
+/* Open state */
+.bt-card.is-open {
+  border-top-color: var(--color-accent);
+}
+
+.bt-card.is-open .bt-card-title,
+.bt-card.is-open .bt-card-role {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+/* Toggle arrow — CSS chevron */
+.bt-card-toggle {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--color-muted);
+  margin-left: 8px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  transition: transform 0.25s ease, border-top-color 0.25s ease;
+}
+
+.bt-card[data-expandable]:hover .bt-card-toggle {
+  border-top-color: var(--color-accent);
+}
+
+.bt-card.is-open .bt-card-toggle {
+  transform: rotate(180deg);
+  border-top-color: var(--color-accent);
+}
+
+/* Bullet accordion */
+.bt-card-bullets {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin-top 0.3s ease;
+  margin-top: 0;
+}
+
+.bt-card.is-open .bt-card-bullets {
+  max-height: 400px;
+  margin-top: 16px;
+}
+
+.bt-card-bullets ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.bt-card-bullets li {
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.85;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.bt-card-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.bt-card-bullets li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
 }
 
 .bt-card-title {

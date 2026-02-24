@@ -68,16 +68,40 @@ window.SITE_CONTENT = {
     title: "Who I Am",
     subtitle: "Business mindset meets technical execution.",
     text: [
-      "I'm a <strong>Business AI student</strong> at FHNW with a background in banking — structured work, customer orientation and analytical thinking under pressure.",
-      "Today I combine this foundation with <strong>AI and modern technologies</strong> to build practical digital solutions at the intersection of business and technology."
+      "Banking taught me discipline. AI is teaching me leverage. And running towards an <strong>Ironman 70.3</strong> is teaching me that the only way to eat a long-term goal is one training session at a time — which, it turns out, is also how you build a career across two demanding fields simultaneously.",
+      "For the past four years I've been doing exactly that: working 70% as a <strong>Corporate Customer Advisor at Migros Bank</strong> while completing a BSc in Business Artificial Intelligence at FHNW. The combination isn't accidental. I genuinely believe the next wave of valuable AI applications will be built by people who understand both the technology and the business problem it's meant to solve — and that combination is rare.",
+      "On the tech side: Python, SQL, machine learning, data engineering, and a habit of shipping things. On the business side: <strong>50+ corporate client relationships</strong>, independent credit decisions, and years of working in a regulated, detail-oriented environment. I'm looking for a team that values both — and wants someone who bridges the gap, not just fills a seat."
     ]
   },
 
   quickFacts: [
-    { label: "Location", value: "Wettingen, CH" },
-    { label: "Education", value: "Business AI, FHNW" },
-    { label: "Sports", value: "Football, 2nd League" },
-    { label: "Status", value: "Open to Work", highlight: true }
+    {
+      label: "Location",
+      value: "Wettingen, CH",
+      detail: "Based in Wettingen, Aargau — Switzerland."
+    },
+    {
+      label: "Education",
+      value: "Business AI, FHNW",
+      link: "https://www.fhnw.ch/en/degree-programmes/business/bai",
+      detail: "BSc in Business Artificial Intelligence at FHNW School of Business, Olten. Part-time alongside work, 180 ECTS. Expected graduation 2028. Focus: intelligent systems & processes, data-driven decision-making, and AI applied in a business context."
+    },
+    {
+      label: "Career",
+      value: "Banking → AI / Tech",
+      detail: "Currently working as a Corporate Customer Advisor at Migros Bank. Goal: transition into an AI or tech role after completing my Business AI degree at FHNW — combining financial domain knowledge with modern technology."
+    },
+    {
+      label: "Sports",
+      value: "Football · Ironman",
+      detail: "Active football player in the 2nd league. Currently in training for an Ironman 70.3 — target year: 2027."
+    },
+    {
+      label: "Status",
+      value: "Open to Opportunities",
+      highlight: true,
+      detail: "Actively seeking to transition from banking into AI, data, or tech. Looking for roles at the intersection of business and technology — where domain expertise meets innovation."
+    }
   ],
 
 
@@ -423,32 +447,82 @@ window.SITE_CONTENT = {
       work: null
     },
     {
+      period: "Sep – Oct 2019",
+      education: null,
+      work: {
+        role: "Commercial Intern",
+        company: "Document Materiel SA, Geneva",
+        bullets: [
+          "Language immersion internship in a French-speaking environment",
+          "Supported sales conversations and client interactions",
+          "Administrative office support",
+          "Assisted with deliveries and logistics"
+        ]
+      }
+    },
+    {
+      period: "Aug 2020",
+      education: null,
+      work: {
+        role: "Accounting & Property Management Intern",
+        company: "Confida Treuhand GmbH",
+        bullets: [
+          "Tax return preparation for private clients",
+          "Real estate management support",
+          "Financial and managerial accounting",
+          "Rental agreement processing"
+        ]
+      }
+    },
+    {
       period: "2021 – 2023",
       education: {
         title: "Basic Banking Education",
         institution: "CYP – Challenge Your Potential",
-        note: "Banking certification completed in parallel with BEM internship at Migros Bank."
+        bullets: [
+          "Completed in parallel with the BEM internship programme at Migros Bank",
+          "Covered banking foundations, compliance and core financial products"
+        ]
       },
       work: {
         role: "BEM Internship",
         company: "Migros Bank AG",
-        description: "Two-year programme spanning Private Banking (2021–2022) and Corporate Customers (2022–2023). Private Banking: client consultations, mortgage financing, property valuations, loan applications, pension provision (3rd pillar) and inheritance cases. Corporate: transaction management, loan portfolio monitoring and senior advisor support."
+        bullets: [
+          "Private Banking (2021–2022): client consultations, mortgage financing, property valuations",
+          "Pension provision (3rd pillar) and inheritance case processing",
+          "Corporate Customers (2022–2023): transaction management and loan portfolio monitoring",
+          "Senior advisor support and client request management"
+        ]
       }
     },
     {
       period: "2023 – present",
-      education: {
-        title: "BSc Business Information Technology",
-        institution: "FHNW – Fachhochschule Nordwestschweiz",
-        note: "Specialisation: Business AI — studied in parallel with employment.",
-        current: true
-      },
+      education: null,
       work: {
         role: "Corporate Customer Advisor",
         company: "Migros Bank AG",
-        description: "Own portfolio of 50+ corporate clients with full advisory responsibility — credit assessments up to CHF 10M. Consulting on mortgage financing, consumer goods leasing, medical practice credits and liquidity planning, alongside BSc studies at FHNW.",
-        current: true
+        current: true,
+        bullets: [
+          "Own portfolio of 50+ corporate clients with full advisory responsibility",
+          "Independent credit assessments and financing requests up to CHF 10M",
+          "Advisory in mortgage financing, consumer goods leasing and medical practice credits",
+          "Liquidity planning and ongoing portfolio monitoring"
+        ]
       }
+    },
+    {
+      period: "2024 – present",
+      education: {
+        title: "BSc Business Artificial Intelligence",
+        institution: "FHNW – Fachhochschule Nordwestschweiz",
+        current: true,
+        bullets: [
+          "Focus: machine learning, data engineering, intelligent systems & processes",
+          "Part-time programme (180 ECTS) alongside 70% employment",
+          "Expected graduation: 2028"
+        ]
+      },
+      work: null
     }
   ],
 
@@ -505,10 +579,10 @@ window.SITE_CONTENT = {
 
     education: [
       {
-        period: "2023 – present",
-        degree: "BSc Business Information Technology (Business AI)",
+        period: "2024 – present",
+        degree: "BSc Business Artificial Intelligence",
         institution: "FHNW – Fachhochschule Nordwestschweiz",
-        location: "Brugg-Windisch"
+        location: "Olten"
       },
       {
         period: "2021 – 2023",
