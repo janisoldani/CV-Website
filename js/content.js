@@ -429,20 +429,15 @@ window.SITE_CONTENT = {
 
   experience: [
     {
-      period: "2009 – 2013",
-      education: { title: "Primary School Altenburg" },
-      work: null
-    },
-    {
-      period: "2013 – 2018",
-      education: { title: "Secondary School Wettingen" },
-      work: null
-    },
-    {
-      period: "2018 – 2022",
+      period: "2009 – 2022",
       education: {
-        title: "School of Economics",
-        institution: "Kantonsschule Baden"
+        title: "Matura — School of Economics",
+        institution: "Kantonsschule Baden",
+        bullets: [
+          "Primary School Altenburg (2009 – 2013)",
+          "Secondary School Wettingen (2013 – 2018)",
+          "Kantonsschule Baden, School of Economics (2018 – 2022)"
+        ]
       },
       work: null
     },
