@@ -169,6 +169,18 @@ function renderBooks() {
       <p class="book-author">${escapeHtml(book.author)}</p>
       <p class="book-note">${escapeHtml(book.note)}</p>
     `;
+
+    // Cover preview — shown on hover, full modal opens on click
+    if (book.coverUrl) {
+      const coverImg = document.createElement("img");
+      coverImg.className = "book-card-cover-preview";
+      coverImg.alt = "";
+      coverImg.setAttribute("aria-hidden", "true");
+      coverImg.loading = "lazy";
+      safeSetSrc(coverImg, book.coverUrl);
+      card.insertBefore(coverImg, card.firstChild);
+    }
+
     card.addEventListener("click", () => openBookModal(book));
     container.appendChild(card);
   });

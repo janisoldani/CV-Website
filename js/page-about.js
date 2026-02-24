@@ -37,6 +37,7 @@ if (factsList && Array.isArray(c.quickFacts)) {
   c.quickFacts.forEach(fact => {
     const row = document.createElement("div");
     row.className = "quick-facts-row";
+    if (fact.detail) row.setAttribute("tabindex", "0");
 
     const label = document.createElement("span");
     label.className = "quick-facts-label";
@@ -69,6 +70,11 @@ if (factsList && Array.isArray(c.quickFacts)) {
     factsList.appendChild(row);
   });
 }
+
+// === Skills Section Header ===
+setText("skills-badge", c.sections.skills.badge);
+setText("skills-heading", c.sections.skills.title);
+setText("skills-subtitle", c.sections.skills.subtitle);
 
 // === Skills Categories ===
 const skillsContainer = document.getElementById("skills-container");
@@ -153,6 +159,11 @@ if (bc) {
     `;
   }
 }
+
+// === Testimonials Section Header ===
+setText("testimonials-badge", c.sections.testimonials.badge);
+setText("testimonials-heading", c.sections.testimonials.title);
+setText("testimonials-subtitle", c.sections.testimonials.subtitle);
 
 // === Testimonials ===
 const testimonialsContainer = document.getElementById("testimonials-container");

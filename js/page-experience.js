@@ -2,6 +2,7 @@
 
 initNavbar();
 
+setText("experience-badge", c.sections.experience.badge);
 setText("experience-title", c.sections.experience.title);
 setText("experience-subtitle", c.sections.experience.subtitle);
 
@@ -15,7 +16,12 @@ setText("experience-subtitle", c.sections.experience.subtitle);
     card.className = "bt-card";
 
     const hasBullets = Array.isArray(item.bullets) && item.bullets.length > 0;
-    if (hasBullets) card.dataset.expandable = "";
+    if (hasBullets) {
+      card.dataset.expandable = "";
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-expanded", "false");
+    }
 
     // ── Title / Role line ─────────────────────────────────────────
     const titleEl = document.createElement("div");
@@ -69,7 +75,16 @@ setText("experience-subtitle", c.sections.experience.subtitle);
       bulletsDiv.appendChild(ul);
       card.appendChild(bulletsDiv);
 
-      card.addEventListener("click", () => card.classList.toggle("is-open"));
+      card.addEventListener("click", () => {
+        card.classList.toggle("is-open");
+        card.setAttribute("aria-expanded", card.classList.contains("is-open").toString());
+      });
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          card.click();
+        }
+      });
     }
 
     return card;

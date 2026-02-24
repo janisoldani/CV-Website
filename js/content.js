@@ -51,8 +51,19 @@ window.SITE_CONTENT = {
       subtitle: "Education, experience and skills at a glance."
     },
     experience: {
+      badge: "Career",
       title: "Experience",
       subtitle: "Education and career — often running in parallel."
+    },
+    skills: {
+      badge: "Technical Expertise",
+      title: "Skills & Tools",
+      subtitle: "Technologies and tools I work with."
+    },
+    testimonials: {
+      badge: "References",
+      title: "Testimonials",
+      subtitle: "What others say about working with me."
     },
     contact: {
       title: "Let's Talk",
@@ -306,7 +317,7 @@ window.SITE_CONTENT = {
           genre: "Memoir",
           note: "Mental toughness and radical self-discipline. Goggins shows what the mind is capable of.",
           teaser: "David Goggins was told he'd never amount to anything. What followed is almost impossible to believe. This book doesn't just inspire — it rearranges what you think is possible.",
-          coverUrl: "https://covers.openlibrary.org/b/id/13268433-L.jpg"
+          coverUrl: "https://pictures.abebooks.com/isbn/9781544512280-us.jpg"
         }
       ]
     }

@@ -10,6 +10,7 @@
   --color-border: rgba(26, 24, 24, 0.1);
   --color-white: #ffffff;
   --color-tag-bg: rgba(42, 138, 137, 0.07);
+  --color-surface: rgba(26, 24, 24, 0.03);
 
   --max-width: 1120px;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
@@ -295,9 +296,6 @@ h1 {
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin-bottom: 16px;
-  word-break: keep-all;
-  white-space: nowrap;
-  overflow: visible;
 }
 
 h1 span {
@@ -732,7 +730,8 @@ h1 span {
   pointer-events: none;
 }
 
-.quick-facts-row:hover .fact-tooltip {
+.quick-facts-row:hover .fact-tooltip,
+.quick-facts-row:focus-within .fact-tooltip {
   display: block;
 }
 
@@ -940,6 +939,7 @@ section:last-of-type {
 .contact-highlight {
   color: var(--color-accent);
   font-weight: 500;
+  margin-top: 6px;
 }
 
 .contact-actions {
@@ -1464,8 +1464,9 @@ footer {
   transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-/* Dot turns accent when its row's card is hovered or open */
+/* Dot turns accent when its row's card is hovered, focused, or open */
 .bt-row:has(.bt-card[data-expandable]:hover) .bt-dot,
+.bt-row:has(.bt-card[data-expandable]:focus-visible) .bt-dot,
 .bt-row:has(.bt-card.is-open) .bt-dot {
   border-color: var(--color-accent);
   background: var(--color-accent);
@@ -1475,7 +1476,7 @@ footer {
   display: inline-block;
   text-align: left;
   max-width: 380px;
-  border-top: 2px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
   padding-top: 14px;
   transition: border-top-color 0.25s ease, transform 0.25s ease;
 }
@@ -1653,6 +1654,10 @@ footer {
   justify-content: center;
 }
 
+.experience-cta-btn {
+  gap: 8px;
+}
+
 /* ============================================
    Testimonials
    ============================================ */
@@ -1665,7 +1670,7 @@ footer {
 
 .testimonial-card {
   background: transparent;
-  padding: 32px 0;
+  padding: 28px 0;
   border: none;
   border-top: 1px solid var(--color-border);
   position: relative;
@@ -1761,7 +1766,7 @@ footer {
 }
 
 @media (max-width: 720px) {
-  main {
+  main:not(.home) {
     padding: 48px 16px 48px;
   }
 
@@ -2975,7 +2980,7 @@ main.cv-page {
 
 .video-title {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   margin-bottom: 6px;
   color: var(--color-text);
@@ -2992,7 +2997,7 @@ main.cv-page {
 .book-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0 32px;
+  gap: 0 24px;
 }
 
 .book-card {
@@ -3004,6 +3009,27 @@ main.cv-page {
 
 .book-card:hover {
   border-top-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Cover preview — slides in on hover, hidden by default */
+.book-card-cover-preview {
+  display: block;
+  width: auto;
+  max-width: 72px;
+  object-fit: contain;
+  border: 1px solid var(--color-border);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin-bottom 0.3s ease;
+  margin-bottom: 0;
+}
+
+.book-card:hover .book-card-cover-preview {
+  opacity: 1;
+  max-height: 108px;
+  margin-bottom: 14px;
 }
 
 .book-genre {
@@ -3355,5 +3381,19 @@ main.cv-page {
 
   .lightbox-label {
     display: none;
+  }
+}
+
+/* ============================================
+   Accessibility — Reduced Motion
+   Respects OS-level "Reduce Motion" setting.
+   WCAG 2.3.3 (AAA) / best practice for vestibular disorders.
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

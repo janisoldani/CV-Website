@@ -25,6 +25,8 @@ if (!project) {
   if (ogTitle) ogTitle.content = `${project.title} — Janis Oldani`;
   const ogDesc = document.querySelector('meta[property="og:description"]');
   if (ogDesc) ogDesc.content = project.description;
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.href = `https://janisoldani.com/project-detail.html?id=${encodeURIComponent(projectId)}`;
 
   initNavbar();
 

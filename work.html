@@ -9,6 +9,7 @@
   <meta name="description" content="AI and software projects by Janis Oldani — Injury Risk Detector, automated Whisper transcription pipeline, hotel reservation system and more." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://janisoldani.com/work.html" />
+    <link rel="canonical" href="https://janisoldani.com/work.html" />
   <meta property="og:title" content="Work — Janis Oldani" />
   <meta property="og:description" content="AI and software projects — Injury Risk Detector, Whisper transcription pipeline, hotel reservation system and more." />
   <meta property="og:image" content="https://janisoldani.com/assets/janis-oldani.jpg" />
@@ -19,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -41,7 +43,7 @@
       </nav>
 
       <a class="navbar-social" id="navbar-linkedin" href="#" target="_blank">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M4.5 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM3 7h3v10H3V7zm6 0h3v1.2c.6-.9 1.8-1.4 3.2-1.4 3.3 0 4 2.1 4 5v5.2h-3v-4.6c0-1.2 0-2.7-1.7-2.7-1.7 0-2 1.3-2 2.6v4.7h-3V7z"/>
         </svg>
       </a>
@@ -49,7 +51,7 @@
   </header>
 
   <main id="main-content">
-    <section id="work">
+    <section id="work" aria-labelledby="work-title">
       <div class="section-badge">Projects</div>
       <h1 class="section-hero-title" id="work-title"></h1>
       <p class="section-hero-subtitle" id="work-subtitle"></p>
@@ -57,12 +59,13 @@
       <div class="projects-grid" id="projects-container"></div>
     </section>
 
-    <footer>
-      © <span id="year"></span>
-      <span id="footer-owner-name"></span>.
-      <span id="footer-built-with"></span>
-    </footer>
   </main>
+
+  <footer>
+    &copy; <span id="year"></span>
+    <span id="footer-owner-name"></span>.
+    <span id="footer-built-with"></span>
+  </footer>
 
   <script src="js/security.js"></script>
   <script src="js/content.js"></script>

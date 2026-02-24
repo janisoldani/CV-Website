@@ -9,6 +9,7 @@
   <meta name="description" content="Profile of Janis Oldani — Business AI student at FHNW and corporate customer advisor at Migros Bank. Skills in Python, SQL, FastAPI and data analysis." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://janisoldani.com/about.html" />
+    <link rel="canonical" href="https://janisoldani.com/about.html" />
   <meta property="og:title" content="About — Janis Oldani" />
   <meta property="og:description" content="Business AI student at FHNW and corporate banking advisor. Skills in Python, SQL, FastAPI and data analysis." />
   <meta property="og:image" content="https://janisoldani.com/assets/janis-oldani.jpg" />
@@ -19,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -41,7 +43,7 @@
       </nav>
 
       <a class="navbar-social" id="navbar-linkedin" href="#" target="_blank">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M4.5 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM3 7h3v10H3V7zm6 0h3v1.2c.6-.9 1.8-1.4 3.2-1.4 3.3 0 4 2.1 4 5v5.2h-3v-4.6c0-1.2 0-2.7-1.7-2.7-1.7 0-2 1.3-2 2.6v4.7h-3V7z"/>
         </svg>
       </a>
@@ -50,7 +52,7 @@
 
   <main id="main-content">
     <!-- Who I Am -->
-    <section id="about">
+    <section id="about" aria-labelledby="about-hero-title">
       <div class="about-split">
         <div class="about-text" id="about-text">
           <div class="section-badge" id="about-badge"></div>
@@ -59,7 +61,7 @@
         </div>
         <div class="quick-facts" id="quick-facts">
           <div class="quick-facts-header">
-            <img id="quick-facts-photo" class="quick-facts-avatar" alt="Janis Oldani" />
+            <img id="quick-facts-photo" class="quick-facts-avatar" alt="Janis Oldani" width="160" height="160" />
             <div>
               <strong>Quick Facts</strong>
               <span>At a glance</span>
@@ -71,15 +73,15 @@
     </section>
 
     <!-- Skills & Tools -->
-    <section id="skills">
-      <div class="section-badge">Technical Expertise</div>
-      <h2 class="section-hero-title section-hero-title--sm">Skills & Tools</h2>
-      <p class="section-hero-subtitle">Technologies and tools I work with.</p>
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="section-badge" id="skills-badge"></div>
+      <h2 class="section-hero-title section-hero-title--sm" id="skills-heading"></h2>
+      <p class="section-hero-subtitle" id="skills-subtitle"></p>
       <div class="grid" id="skills-container"></div>
     </section>
 
     <!-- Beyond Code -->
-    <section id="beyond-code">
+    <section id="beyond-code" aria-labelledby="beyond-title">
       <div class="section-badge" id="beyond-badge"></div>
       <h2 class="section-hero-title section-hero-title--sm" id="beyond-title"></h2>
       <p class="section-hero-subtitle" id="beyond-subtitle"></p>
@@ -95,15 +97,15 @@
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials">
-      <div class="section-badge">References</div>
-      <h2 class="section-hero-title section-hero-title--sm">Testimonials</h2>
-      <p class="section-hero-subtitle">What others say about working with me.</p>
+    <section id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="section-badge" id="testimonials-badge"></div>
+      <h2 class="section-hero-title section-hero-title--sm" id="testimonials-heading"></h2>
+      <p class="section-hero-subtitle" id="testimonials-subtitle"></p>
       <div class="testimonials-grid" id="testimonials-container"></div>
     </section>
 
     <!-- CV Download -->
-    <section class="cv-section">
+    <div class="cv-section">
       <a id="cv-download-btn" class="btn-cv" href="cv.html" download="CV Janis Oldani.pdf">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -114,15 +116,15 @@
         </svg>
         Download CV
       </a>
-    </section>
-
-    <footer>
-      &copy; <span id="year"></span>
-      <span id="footer-owner-name"></span>.
-      <span id="footer-built-with"></span>
-    </footer>
+    </div>
 
   </main>
+
+  <footer>
+    &copy; <span id="year"></span>
+    <span id="footer-owner-name"></span>.
+    <span id="footer-built-with"></span>
+  </footer>
 
   <script src="js/security.js"></script>
   <script src="js/content.js"></script>

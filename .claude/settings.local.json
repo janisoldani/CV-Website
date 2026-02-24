@@ -46,7 +46,16 @@
       "Bash(echo exit: $?:*)",
       "Bash(curl:*)",
       "Bash(cmd:*)",
-      "Bash(ls Projekte\\\\Janis:*)"
+      "Bash(ls Projekte\\\\Janis:*)",
+      "Bash(echo OK:*)",
+      "Bash(cd \"C:\\\\Projekte\\\\Private Projekte\\\\Janis Oldani Webseite\" && node -e \"\nconst fs = require\\('fs'\\);\n// Simulate window object\nglobal.window = { SITE_CONTENT: null };\neval\\(fs.readFileSync\\('js/content.js', 'utf8'\\)\\);\nconst c = window.SITE_CONTENT;\nconsole.log\\('cvPdfUrl:', c.personal.cvPdfUrl\\);\nconsole.log\\('github:', c.links.github\\);\nconsole.log\\('linkedin:', c.links.linkedin\\);\n\" 2>&1)",
+      "Bash(cd \"C:\\\\Projekte\\\\Private Projekte\\\\Janis Oldani Webseite\" && node -e \"\nconst fs = require\\('fs'\\);\nglobal.window = { location: { href: 'http://localhost/' } };\n\n// Simulate safeSetHref\nfunction getSafeHref\\(url, allowed = ['https:', 'mailto:']\\) {\n  if \\(typeof url !== 'string' || url.trim\\(\\) === ''\\) return '#';\n  if \\(!url.includes\\(':'\\)\\) return url;\n  try {\n    const { protocol } = new URL\\(url, window.location.href\\);\n    return allowed.includes\\(protocol\\) ? url : '#';\n  } catch { return '#'; }\n}\n\neval\\(fs.readFileSync\\('js/content.js', 'utf8'\\)\\);\nconst c = window.SITE_CONTENT;\n\nconst pdfUrl = c.personal.cvPdfUrl || c.personal.cvUrl;\nconsole.log\\('CV href will be:', getSafeHref\\(pdfUrl\\)\\);\nconsole.log\\('GitHub href will be:', getSafeHref\\(c.links.github\\)\\);\nconsole.log\\('LinkedIn href will be:', getSafeHref\\(c.links.linkedin\\)\\);\n\" 2>&1)",
+      "Bash(cd \"C:\\\\Projekte\\\\Private Projekte\\\\Janis Oldani Webseite\" && node -e \"\nconst fs = require\\('fs'\\);\nglobal.window = { location: { href: 'http://localhost/' } };\nglobal.document = { querySelectorAll: \\(\\) => [], querySelector: \\(\\) => null, getElementById: \\(\\) => null, createElement: \\(\\) => \\({style:{},setAttribute:\\(\\)=>{},appendChild:\\(\\)=>{},addEventListener:\\(\\)=>{}}\\), body: { addEventListener: \\(\\)=>{} } };\n\n// Load security.js\neval\\(fs.readFileSync\\('js/security.js', 'utf8'\\)\\);\n// Load content.js\neval\\(fs.readFileSync\\('js/content.js', 'utf8'\\)\\);\n\nconst c = window.SITE_CONTENT;\n// Simulate link checks\nconst pdfUrl = c.personal.cvPdfUrl || c.personal.cvUrl;\nconsole.log\\('[CV]     ', getSafeHref\\(pdfUrl\\)\\);\nconsole.log\\('[GitHub] ', getSafeHref\\(c.links.github\\)\\);\nconsole.log\\('[LinkedIn]', getSafeHref\\(c.links.linkedin\\)\\);\n\" 2>&1)",
+      "Bash(cd C:\\\\Projekte\\\\Private Projekte\\\\Janis Oldani Webseite:*)",
+      "WebFetch(domain:www.fhnw.ch)",
+      "Bash(done)",
+      "Bash(echo no python:*)",
+      "Bash(echo no imagemagick:*)"
     ]
   }
 }
