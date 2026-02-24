@@ -1379,6 +1379,22 @@ footer {
   position: relative;
 }
 
+/* Downward arrow at the bottom of the axis line */
+.bt-timeline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid var(--color-text);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 /* Vertical axis line (center of 120px middle column = 50% of total) */
 .bt-timeline::before {
   content: "";
@@ -1445,10 +1461,12 @@ footer {
   background: var(--color-bg);
   margin-top: 8px;
   flex-shrink: 0;
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-/* Accent dot = parallel education + work */
-.bt-dot--parallel {
+/* Dot turns accent when its row's card is hovered or open */
+.bt-row:has(.bt-card[data-expandable]:hover) .bt-dot,
+.bt-row:has(.bt-card.is-open) .bt-dot {
   border-color: var(--color-accent);
   background: var(--color-accent);
 }
