@@ -55,7 +55,8 @@
       "WebFetch(domain:www.fhnw.ch)",
       "Bash(done)",
       "Bash(echo no python:*)",
-      "Bash(echo no imagemagick:*)"
+      "Bash(echo no imagemagick:*)",
+      "Bash(find:*)"
     ]
   }
 }
