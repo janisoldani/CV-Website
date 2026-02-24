@@ -2,13 +2,6 @@
 
 initNavbar();
 
-const skillIcons = {
-  code: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
-  framework: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
-  tool: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
-  banking: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7 12 2"/></svg>'
-};
-
 // === WHO I AM Section ===
 const intro = c.aboutIntro;
 if (intro) {
@@ -68,30 +61,6 @@ if (factsList && Array.isArray(c.quickFacts)) {
     }
 
     factsList.appendChild(row);
-  });
-}
-
-// === Skills Section Header ===
-setText("skills-badge", c.sections.skills.badge);
-setText("skills-heading", c.sections.skills.title);
-setText("skills-subtitle", c.sections.skills.subtitle);
-
-// === Skills Categories ===
-const skillsContainer = document.getElementById("skills-container");
-if (skillsContainer && Array.isArray(c.skillCategories)) {
-  c.skillCategories.forEach(cat => {
-    const card = document.createElement("article");
-    card.className = "card skill-category-card";
-    card.innerHTML = `
-      <div class="skill-category-header">
-        <span class="skill-category-icon">${skillIcons[cat.icon] || ""}</span>
-        <h4 class="card-title">${escapeHtml(cat.title)}</h4>
-      </div>
-      <div class="skills-tags">
-        ${cat.tags.map(tag => `<span class="skill-tag">${escapeHtml(tag)}</span>`).join("")}
-      </div>
-    `;
-    skillsContainer.appendChild(card);
   });
 }
 
