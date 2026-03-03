@@ -15,7 +15,7 @@ window.SITE_CONTENT = {
       "Business AI student at FHNW and corporate banking advisor at Migros Bank — combining structured finance experience with AI and data engineering to build practical solutions.",
     skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Data Analysis"],
     cvUrl: "cv.html",
-    cvPdfUrl: "assets/CV Janis Oldani.pdf"
+    cvPdfUrl: "assets/CV Janis Oldani Canva.pdf"
   },
 
   availability: {
@@ -540,9 +540,10 @@ window.SITE_CONTENT = {
         company: "Migros Bank AG",
         detail: "70% — parallel to BSc studies",
         bullets: [
-          "Own portfolio of 50+ corporate clients with full advisory responsibility",
-          "Client advisory in mortgage financing, consumer goods leasing, medical practice credits and liquidity planning",
-          "Independent credit assessments and financing requests up to CHF 10M"
+          "Relationship-driven advisory for a portfolio of 50+ corporate clients — from needs analysis to tailored solution development",
+          "Structuring individual financing solutions across mortgage lending, consumer goods leasing, medical practice credits and liquidity planning",
+          "Independent credit assessments and financing proposals up to CHF 10M — from initial client brief through to credit decision",
+          "Primary point of contact for complex client situations — proactive problem-solving and cross-product recommendations"
         ]
       },
       {
