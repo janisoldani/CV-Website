@@ -373,6 +373,31 @@ window.SITE_CONTENT = {
       demoUrl: ""
     },
     {
+      id: "zalando-empfehlungssystem",
+      category: "University Project",
+      title: "Intelligent Shoe Recommendation System",
+      description:
+        "Knowledge representation project for Zalando — built an explainable shoe recommendation engine using three complementary symbolic AI methods: DMN decision tables for structured business rules, a Prolog knowledge base for logical inference, and an OWL ontology with SWRL rules and SPARQL queries for semantic reasoning. Team project at FHNW (Spring Semester 2025).",
+      tags: ["DMN", "Prolog", "OWL/SWRL", "SPARQL", "Knowledge Representation"],
+      status: "completed",
+      problemstellung: "Online fashion platforms like Zalando offer thousands of shoe models, making it difficult for customers to find the right product without expert guidance. The challenge was to build an intelligent, explainable recommendation system that maps customer profiles and context (occasion, season, comfort needs, price sensitivity) to concrete product recommendations — without relying on opaque, black-box machine learning.",
+      zielsetzung: "Develop a multi-method recommendation system covering three paradigms of knowledge representation: decision modelling with DMN, rule-based logical inference with Prolog, and semantic reasoning with OWL/SWRL. The system should be transparent, explainable and extendable — key requirements for trustworthy AI in a business context.",
+      vorgehen: "The project was structured in three parallel workstreams. First, a Decision Requirements Diagram and three decision tables (Recommendation, Comfort Level, Product Selection) were modelled in DMN using Trisotech, with hit policies ranging from First to Collect. Second, a Prolog knowledge base was built with 10 brands, 20 shoe models and 9 customer profiles, implementing recommendation and fallback rules including comfort scoring and price classification. Third, an OWL ontology was designed in Protégé with 9 domain classes, enriched with 22 SWRL inference rules and queried via SPARQL to retrieve personalised model recommendations.",
+      losung: "A fully functional three-layer recommendation system: DMN tables for structured decision logic, Prolog for logical inference across a curated product catalogue, and an OWL ontology enabling semantic querying. The combination demonstrates how symbolic AI methods deliver explainable, auditable recommendations — a key advantage over statistical models in regulated or customer-facing business contexts.",
+      technicalSteps: [
+        "Modelled Decision Requirements Diagram with 3 decision levels (Recommendation, Comfort Level, Product Selection)",
+        "Built DMN decision tables with hit policies First, Unique and Collect in Trisotech",
+        "Implemented Prolog knowledge base: 10 brands, 20 shoe models, 9 customer profiles",
+        "Defined recommendation rules including komfortanspruch/4, schuhempfehlung/7 and alternative_schuhempfehlung/7",
+        "Designed OWL ontology with 9 domain classes in Protégé (Customer, Model, Occasion, Season, Comfort, Style, etc.)",
+        "Implemented 22 SWRL rules for comfort-level and shoe-type inference",
+        "Wrote SPARQL queries for semantic model retrieval across customer profiles"
+      ],
+      learnings: "Combining three symbolic AI paradigms in one project made their trade-offs tangible: DMN excels at structured, auditable business rules but requires careful hit-policy design; Prolog enables flexible logical inference but demands clean predicate modelling to scale; OWL ontologies support rich semantic reasoning but require precise class and property definitions upfront. Core takeaway for Business AI: explainability is not an add-on — it is the foundation of trustworthy, deployable AI in real business contexts.",
+      githubUrl: "",
+      demoUrl: ""
+    },
+    {
       id: "hotel-reservierung",
       category: "University Project",
       title: "Hotel Reservation System",
@@ -649,6 +674,11 @@ window.SITE_CONTENT = {
     "Drone Photography": "Aerial photography with a drone — perspectives from a bird's eye view.",
     "Landscape": "Nature and outdoor photography — light, space and depth.",
     "Composition": "Visual design and framing — balance, lines and focus.",
+    "DMN": "Decision Model and Notation — standard for modelling and executing business decision logic as decision tables.",
+    "Prolog": "Logic programming language for rule-based inference and knowledge representation.",
+    "OWL/SWRL": "Web Ontology Language combined with Semantic Web Rule Language — for building and reasoning over knowledge graphs.",
+    "SPARQL": "Query language for RDF and OWL knowledge graphs — retrieves structured knowledge via semantic patterns.",
+    "Knowledge Representation": "Symbolic AI methods for encoding domain knowledge in a structured, machine-readable and explainable form.",
     "Mortgage Financing": "Advisory and structuring of mortgage credits for private and commercial clients.",
     "Consumer Leasing": "Financing of consumer goods and vehicles via leasing agreements for corporate clients.",
     "Medical Practice Lending": "Specialised credits for medical practices — financing operating resources and practice investments.",
