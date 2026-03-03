@@ -15,7 +15,7 @@ window.SITE_CONTENT = {
       "Business AI student at FHNW and corporate banking advisor at Migros Bank — combining structured finance experience with AI and data engineering to build practical solutions.",
     skills: ["Python", "SQL", "HTML/CSS/JS", "Git/GitHub", "Data Analysis"],
     cvUrl: "cv.html",
-    cvPdfUrl: "assets/CV Janis Oldani Canva.pdf"
+    cvPdfUrl: "assets/CV_Janis_Oldani.pdf"
   },
 
   availability: {
