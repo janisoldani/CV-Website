@@ -56,7 +56,10 @@
       "Bash(done)",
       "Bash(echo no python:*)",
       "Bash(echo no imagemagick:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(python:*)",
+      "Bash(py:*)",
+      "Bash(pdftotext:*)"
     ]
   }
 }
