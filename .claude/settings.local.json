@@ -60,7 +60,8 @@
       "Bash(python:*)",
       "Bash(py:*)",
       "Bash(pdftotext:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(ls:*)"
     ]
   }
 }
