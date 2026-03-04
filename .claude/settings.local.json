@@ -59,7 +59,8 @@
       "Bash(find:*)",
       "Bash(python:*)",
       "Bash(py:*)",
-      "Bash(pdftotext:*)"
+      "Bash(pdftotext:*)",
+      "Bash(node:*)"
     ]
   }
 }
