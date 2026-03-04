@@ -1250,6 +1250,19 @@ footer {
   transition: all 0.25s ease;
 }
 
+.project-detail-hero {
+  margin-bottom: 64px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.project-detail-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
 .project-detail-section {
   margin-bottom: 64px;
 }

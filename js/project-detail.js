@@ -43,6 +43,17 @@ if (!project) {
       .join("");
   }
 
+  // Hero image
+  if (project.coverImage) {
+    const hero = document.getElementById("project-hero");
+    const heroImg = document.getElementById("project-hero-img");
+    if (hero && heroImg) {
+      safeSetSrc(heroImg, project.coverImage);
+      heroImg.alt = `${project.title} preview`;
+      hero.style.display = "";
+    }
+  }
+
   // Detail-Sektionen: leere Sektionen ausblenden
   const sectionFields = [
     "project-problemstellung",

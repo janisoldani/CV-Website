@@ -326,6 +326,7 @@ window.SITE_CONTENT = {
   projects: [
     {
       id: "meetmind",
+      coverImage: "assets/Projektvisualisierung/preview-meetmind.png",
       category: "AI / Fullstack",
       title: "MeetMind — Meeting Intelligence",
       description:
@@ -351,6 +352,7 @@ window.SITE_CONTENT = {
     },
     {
       id: "injury-risk-detector",
+      coverImage: "assets/Projektvisualisierung/preview-injury-risk.png",
       category: "Fullstack / AI",
       title: "Injury Risk Detector",
       description:
@@ -399,6 +401,7 @@ window.SITE_CONTENT = {
     },
     {
       id: "zalando-empfehlungssystem",
+      coverImage: "assets/Projektvisualisierung/preview-shoe-recommendation.png",
       category: "University Project",
       title: "Intelligent Shoe Recommendation System",
       description:
@@ -424,6 +427,7 @@ window.SITE_CONTENT = {
     },
     {
       id: "hotel-reservierung",
+      coverImage: "assets/Projektvisualisierung/preview-hotel-reservation.png",
       category: "University Project",
       title: "Hotel Reservation System",
       description:
