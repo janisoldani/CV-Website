@@ -325,6 +325,31 @@ window.SITE_CONTENT = {
 
   projects: [
     {
+      id: "meetmind",
+      category: "AI / Fullstack",
+      title: "MeetMind — Meeting Intelligence",
+      description:
+        "AI-powered meeting intelligence system for SMEs — automatically transcribes audio with Whisper, generates structured summaries and extracts action items via LLM, and makes all meetings searchable through a RAG agent with timestamped source citations. Dual-stack architecture: MVP runs fully local (€0/month, Whisper + LLaMA via Ollama + ChromaDB), Production switches to OpenAI APIs via env variables. GDPR-native design for the DACH mid-market.",
+      tags: ["Python", "FastAPI", "LangChain", "RAG", "Whisper", "LLaMA", "ChromaDB", "Next.js", "pgvector", "DSGVO"],
+      status: "in-progress",
+      problemstellung: "Mid-sized enterprises in the DACH region lose valuable institutional knowledge in every meeting: decisions disappear, accountability is unclear, and post-meeting follow-up (protocols, action items, summaries) consumes 30–60 minutes per meeting hour. Existing solutions fail the market: Otter.ai and Fireflies run on US servers (GDPR problem), Microsoft Copilot requires M365 Business Premium that most SMEs don't have, and none offer a self-hosted option for compliance-sensitive organisations.",
+      zielsetzung: "Build a GDPR-native meeting intelligence platform that automatically transcribes, summarises and makes all meeting recordings searchable through a RAG agent — fully deployable on-premise with zero cloud costs for the MVP, scalable to a SaaS product ($10/seat/month) for the DACH mid-market. Core design principle: every decision, every context, every commitment — permanently and instantly retrievable.",
+      vorgehen: "Designed a dual-stack architecture where MVP and Production share identical code — switching between local and cloud AI providers requires only 4 environment variable changes. MVP stack: Whisper (local, CPU), Ollama/LLaMA 3.1 8B, sentence-transformers (all-MiniLM-L6-v2), ChromaDB, Supabase Free — zero API costs. Production stack: OpenAI Whisper API, GPT-4o, text-embedding-3-small, pgvector + Row Level Security, Railway. Backend: FastAPI with BackgroundTasks (Redis/Celery deliberately omitted to keep the stack under 8 technologies). Frontend: Next.js 14, Tailwind CSS, shadcn/ui. The database schema is multi-tenant from day one — workspace_id FK across all tables, with PostgreSQL Row Level Security enforcing workspace isolation at DB level rather than application level.",
+      losung: "A complete meeting intelligence pipeline: audio upload → Whisper transcription with word-level confidence scores → LLM-generated structured summary + action item extraction with assignee → RAG indexing with semantic search. The RAG agent answers natural-language questions about past meetings with timestamped source citations (e.g. 'What did we decide about Vendor X in March?' → answer with meeting link and transcript timestamp). Confidence-score UI marks uncertain transcriptions inline for manual correction. RAGAS evaluation framework validates RAG quality on a 50 Q&A gold-standard dataset (Faithfulness > 0.75, Answer Relevancy > 0.70). GDPR compliance is structural: opt-in consent before every recording, cascading delete of audio + transcript + vectors, no cross-workspace data leakage via pgvector + RLS.",
+      technicalSteps: [
+        "Designed dual-stack provider architecture — MVP (local) ↔ Production (cloud) switchable via 4 env variables, zero code changes",
+        "Built Whisper transcription pipeline with word-level confidence scores; inline correction UI re-triggers RAG re-embedding on edit",
+        "Implemented RAG pipeline: sentence-transformers embeddings → ChromaDB (MVP) / pgvector + Row Level Security (Production) → LangChain retrieval chain with timestamped source citations",
+        "Designed multi-tenant DB schema (workspaces / users / meetings / action_items) with PostgreSQL RLS: workspace isolation enforced at DB level, not filter level",
+        "Integrated RAGAS evaluation framework with 50 Q&A gold-standard test pairs — Faithfulness and Answer Relevancy measured automatically after every pipeline change",
+        "Implemented GDPR consent flow, cascading delete of all derived data (audio, transcript, vectors), opt-out re-extraction and audit trail",
+        "Planned 8-week MVP sprint roadmap with validation gates: Upload Hypothesis (Sprint 1) must pass before RAG features are built"
+      ],
+      learnings: "Designing for testability upfront — RAGAS gold-standard dataset, confidence scores per word — forces a concrete definition of 'good enough' before building, not after. The dual-stack architecture validated that MVP and production can share identical code if you abstract provider interfaces from day one. pgvector + Row Level Security is architecturally superior to application-level filtering for multi-tenant RAG: a single missing where-clause in ChromaDB can cause a data leak, while RLS makes it structurally impossible. And the key product insight: GDPR compliance in DACH is a go-to-market advantage, not a constraint — the self-hosted option opens market segments Microsoft Copilot structurally cannot reach.",
+      githubUrl: "",
+      demoUrl: ""
+    },
+    {
       id: "injury-risk-detector",
       category: "Fullstack / AI",
       title: "Injury Risk Detector",
@@ -686,7 +711,16 @@ window.SITE_CONTENT = {
     "Client Advisory": "Holistic client consulting — needs analysis, solution development and relationship management.",
     "Credit Assessment": "Creditworthiness analysis — evaluation of balance sheets, cash flows and risk profiles.",
     "KYC & Compliance": "Know Your Customer — identification, due diligence and regulatory compliance.",
-    "Portfolio Monitoring": "Monitoring and management of loan portfolios — risk surveillance and reporting."
+    "Portfolio Monitoring": "Monitoring and management of loan portfolios — risk surveillance and reporting.",
+    "LangChain": "Python framework for building LLM-powered applications — chains, agents and retrieval-augmented pipelines.",
+    "RAG": "Retrieval-Augmented Generation — grounding LLM responses with relevant context retrieved from a knowledge base to reduce hallucinations.",
+    "LLaMA": "Open-source large language model by Meta — runs locally via Ollama for privacy-first AI without cloud APIs.",
+    "ChromaDB": "Open-source vector database for storing and querying embeddings — used for semantic search and RAG pipelines.",
+    "pgvector": "PostgreSQL extension for vector similarity search — enables semantic retrieval directly in the relational database with Row Level Security.",
+    "DSGVO": "Datenschutz-Grundverordnung — EU data protection regulation. DSGVO-native means privacy by architecture, not compliance as an afterthought.",
+    "Ollama": "Local LLM runtime — runs models like LLaMA and Mistral entirely on-device, no cloud APIs or API costs required.",
+    "Next.js": "React meta-framework by Vercel — server-side rendering, file-based routing and full-stack capabilities.",
+    "RAGAS": "RAG evaluation framework — measures LLM pipeline quality on dimensions like Faithfulness, Answer Relevancy and Context Precision."
   },
 
   footer: {
