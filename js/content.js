@@ -120,17 +120,17 @@ window.SITE_CONTENT = {
     {
       icon: "code",
       title: "Languages",
-      tags: ["Python", "SQL", "HTML/CSS", "JavaScript"]
+      tags: ["Python", "SQL", "HTML/CSS", "JavaScript", "TypeScript"]
+    },
+    {
+      icon: "ai",
+      title: "AI & ML",
+      tags: ["LangChain", "RAG", "Whisper", "OpenAI API", "LLaMA", "Ollama", "nltk"]
     },
     {
       icon: "framework",
-      title: "Frameworks & Libraries",
-      tags: ["Pandas", "nltk", "Whisper API", "OpenAI API"]
-    },
-    {
-      icon: "tool",
-      title: "Tools & Platforms",
-      tags: ["Git/GitHub", "VS Code", "Jupyter", "PostgreSQL"]
+      title: "Frameworks & Tools",
+      tags: ["FastAPI", "React", "Next.js", "TailwindCSS", "Pandas", "PostgreSQL", "SQLite", "ChromaDB", "pgvector", "Git/GitHub", "VS Code", "Jupyter"]
     },
     {
       icon: "banking",
@@ -248,7 +248,7 @@ window.SITE_CONTENT = {
         { src: "assets/photography/drone/drone-river-winter.jpeg",  alt: "Top-down aerial of a frozen river winding through snow-covered trees",     label: "Winter River" },
         { src: "assets/photography/drone/drone-forest-summer.jpeg", alt: "Top-down aerial of a dense summer forest with a road cutting through",     label: "Forest" },
         { src: "assets/photography/drone/drone-forest-autumn.jpeg", alt: "Top-down aerial of a forest in late autumn with bare and sparse trees",    label: "Autumn Forest" },
-        { src: "assets/photography/drone/drone-city-night.jpeg",    alt: "Top-down aerial of city streets at night lit by orange street lamps",      label: "City Night" }
+        { src: "assets/photography/drone/drone-city-night.jpeg",    alt: "Top-down aerial of city streets at night lit by orange street lamps",      label: "City Night", hidden: true }
       ]
     },
 
@@ -684,6 +684,7 @@ window.SITE_CONTENT = {
     "Pandas": "Python library for data manipulation and analysis with DataFrames.",
     "nltk": "Natural Language Toolkit — Python library for text processing and NLP.",
     "Whisper API": "OpenAI's automatic speech recognition and transcription model.",
+    "Whisper": "OpenAI's automatic speech recognition model — transcribes audio to text across multiple languages.",
     "OpenAI API": "Interface to OpenAI models for text, image and speech.",
     "OpenAI": "AI research company — known for GPT, DALL·E and Whisper.",
     "Git/GitHub": "Version control (Git) and platform for code collaboration (GitHub).",

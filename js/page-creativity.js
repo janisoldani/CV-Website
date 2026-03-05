@@ -2,10 +2,10 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
-  renderPhotography();
   renderDrone();
-  renderVideos();
   renderBooks();
+  renderPhotography();
+  renderVideos();
   initFooter();
 });
 
@@ -16,13 +16,13 @@ function renderPhotography() {
   setText("photo-title", photo.title);
   setText("photo-subtitle", photo.subtitle);
 
-  // Hero image — above-fold, high priority for LCP
+  // Hero image — below drone section, lazy load
   const heroEl = document.getElementById("photo-hero");
   if (photo.heroImage) {
     const img = document.createElement("img");
     img.className = "beyond-hero-img";
     img.alt = photo.heroImage.alt;
-    img.setAttribute("fetchpriority", "high");
+    img.loading = "lazy";
     safeSetSrc(img, photo.heroImage.src);
     heroEl.appendChild(img);
   }
@@ -60,13 +60,13 @@ function renderDrone() {
   setText("drone-title", drone.title);
   setText("drone-subtitle", drone.subtitle);
 
-  // Hero image — lazy since it's below the photography section
+  // Hero image — above-fold, high priority for LCP
   const heroEl = document.getElementById("drone-hero");
   if (drone.heroImage && heroEl) {
     const img = document.createElement("img");
     img.className = "beyond-hero-img";
     img.alt = drone.heroImage.alt;
-    img.loading = "lazy";
+    img.setAttribute("fetchpriority", "high");
     safeSetSrc(img, drone.heroImage.src);
     heroEl.appendChild(img);
   }
@@ -75,7 +75,8 @@ function renderDrone() {
   const galleryEl = document.getElementById("drone-gallery");
   if (!galleryEl || !drone.gallery || !drone.gallery.length) return;
 
-  drone.gallery.forEach((item, i) => {
+  const visibleDrone = drone.gallery.filter(item => !item.hidden);
+  visibleDrone.forEach((item, i) => {
     const div = document.createElement("div");
     div.className = "beyond-mosaic-item";
 
@@ -93,7 +94,7 @@ function renderDrone() {
 
     div.appendChild(img);
     div.appendChild(overlay);
-    div.addEventListener("click", () => openLightbox(drone.gallery, i));
+    div.addEventListener("click", () => openLightbox(visibleDrone, i));
     galleryEl.appendChild(div);
   });
 }
